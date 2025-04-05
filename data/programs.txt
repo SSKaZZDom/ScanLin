@@ -1,0 +1,446 @@
+Name: ����� �ࠩ��஢ Windows - Silicon Laboratories Inc. (silabser) Ports  (06/20/2019 10.1.8.2466), Version: 06/20/2019 10.1.8.2466
+Name: Visual Paradigm 17.1, Version: 17.1
+Name: Visual Paradigm CE 17.1, Version: 17.1
+Name: Pulsar 1178, Version: 1.0.8
+Name: Arduino IDE 2.2.1, Version: 2.2.1
+Name: Steven Slate Audio Center 3.1.1, Version: 3.1.1
+Name: Surge XT, Version: 1.3.1
+Name: 7-Zip 19.00 (x64), Version: 19.00
+Name: A.O.M. Total Bundle, Version: 1.16.1
+Name: IK Product Manager, Version: 1.1.4
+Name: SE-DRUMS 1.0.0, Version: 1.0.0
+Name: XLN Audio Addictive Drums 2, Version: 2.1.5
+Name: ADSR ADSRDrumMachine 1.0.3, Version: 1.0.3
+Name: AIMP, Version: 5.30.2563
+Name: AMD Software, Version: 24.3.1
+Name: Arturia Analog Lab V, Version: 5.7.0
+Name: Antares Auto-Tune Unlimited, Version: 2021.12
+Name: Apache Tomcat 10.1 Tomcat10 (remove only), Version: 10.1.19
+Name: Arturia Synths Collection, Version: 2022.7
+Name: VD-BRUTE 2.1.1, Version: 2.1.1
+Name: UA Connect 1.4.21, Version: 1.4.21
+Name: ����� �ࠩ��஢ Windows - Silicon Laboratories Inc. (silabser) Ports  (05/23/2018 6.7.6.2130), Version: 05/23/2018 6.7.6.2130
+Name: Softube Chandler Limited Curve Bender, Version: 2.5.9
+Name: Waves Complete, Version: 2019.07.10
+Name: CRMBL, Version: 1.0
+Name: DC1A3 version 3.5.0.0, Version: 3.5.0.0
+Name: Dirty Filter version 1.0.0, Version: 1.0.0
+Name: Kuassa Efektor Distortion Bundle, Version: 1.0.6
+Name: Accusonus ERA-D, Version: 1.2.0
+Name: FabFilter Total Bundle, Version: 2024.02.05
+Name: Pitch Innovations Fluid Pitch, Version: 1.3.1
+Name: GIMP 2.10.28, Version: 2.10.28
+Name: Git, Version: 2.33.0.2
+Name: UJAM GM-ONE, Version: 1.0.0
+Name: Kush Audio Hammer DSP, Version: 1.1.1
+Name: HxD Hex Editor 2.5, Version: 2.5
+Name: IVGI2 version 2.5.0.0, Version: 2.5.0.0
+Name: iZotope RX 10 Audio Editor Advanced, Version: 10.3.0
+Name: iZotope RX Pro Audio Editor, Version: 10.4.0
+Name: La Petite Excite version 1.0.0, Version: 1.0.0
+Name: GForce M-Tron Pro, Version: 3.0.0
+Name: Celemony Melodyne 5, Version: 5.3.0.011
+Name: MJUCjr version 1.5.0.0, Version: 1.5.0.0
+Name: Mozilla Firefox (x64 ru), Version: 135.0.1
+Name: Mozilla Maintenance Service, Version: 98.0.2
+Name: DDMF NYCompressor, Version: 2.2.2
+Name: Microsoft 365 - ru-ru, Version: 16.0.18429.20158
+Name: Spectrasonics Omnisphere, Version: 2.6.3c
+Name: OSD, Version: 11.0.4.2
+Name: Ozone 11 Equalizer, Version: 11.0.0
+Name: Honor PC Manager, Version: 17.0.0.131
+Name: Pisstortion, Version: 1.0
+Name: PNCH, Version: 1.0
+Name: PostgreSQL 16 , Version: 16.4-1
+Name: Prisma, Version: 1.0
+Name: XLN Audio RC-20 Retro Color, Version: 1.1.1.2
+Name: REAPER (x64), Version: 7.15
+Name: Red Bass, Version: 1.0
+Name: LiquidSonics Reverberate, Version: 3.1.2
+Name: Synchro Arts ReVoice Pro, Version: 4.1.1.2
+Name: RotMG Exalt Launcher, Version: 1.3
+Name: Shotcut, Version: 23.05.07
+Name: oeksound soothe2, Version: 1.1.2
+Name: Spoton version 1.0.0, Version: 1.0.0
+Name: TEAM R2R Steinberg Silk Emulator, Version: 1.1.0
+Name: STL Ignite - Emissary Plug-In Bundle, Version: 2.0.2
+Name: FAW SubLab, Version: 1.1.2
+Name: SunBurnt, Version: 1.0
+Name: Toontrack Superior Drummer 3.3.2 Update, Version: 3.3.2
+Name: Togu Audio Line TAL-Drum, Version: 1.0.0
+Name: TAP-Windows 9.21.2, Version: 9.21.2
+Name: TDR Kotelnikov version 1.6.5, Version: 1.6.5
+Name: TDR Molotok version 1.0.5, Version: 1.0.5
+Name: TDR Nova version 2.1.6, Version: 2.1.6
+Name: TDR Prism version 1.0.4, Version: 1.0.4
+Name: TDR VOS SlickEQ version 1.3.8, Version: 1.3.8
+Name: TENSjr version 1.0.7.0, Version: 1.0.7.0
+Name: Nembrini Audio The Boss Bundle, Version: 1.0.1
+Name: Toneforge - Misha Mansoor Advanced version 1.0.2, Version: 1.0.2
+Name: Softube Tube-Tech PE 1C, Version: 2.5.9
+Name: Universal Control, Version: 4.2.0.96206
+Name: Valhalla DSP bundle 2019, Version: 2019
+Name: VariSpeed version 1.0.0, Version: 1.0.0
+Name: Vinyl, Version: 1.12.1
+Name: Slate Digital Virtual Mix Rack, Version: 2.5.2.1
+Name: Vital version 1.5.5, Version: 1.5.5
+Name: VLC media player, Version: 3.0.16
+Name: Vocal Limiter version 2.0.0, Version: 2.0.0
+Name: Waves Complete, Version: 2023.02.07
+Name: Softube Weiss MM-1 Mastering Maximizer, Version: 2.5.9
+Name: XLN Audio Addictive Drums 2, Version: 2.3.5.4
+Name: XLN Audio XO, Version: 1.2.8
+Name: Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40664, Version: 12.0.40664
+Name: Microsoft .NET AppHost Pack - 8.0.7 (x64), Version: 64.28.16731
+Name: Native Instruments Guitar Rig 5, Version: 5.2.2.8
+Name: Microsoft.Maui.Controls.Ref.win (x64), Version: 7.0.86.0
+Name: Microsoft.iOS.Runtime.iossimulator-x64 (x64), Version: 16.4.7054.0
+Name: Python 3.9.7 Standard Library (64-bit), Version: 3.9.7150.0
+Name: Antelope Launcher, Version: 3.0.0
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.56336 False, Version: 8.0.56336
+Name: Microsoft .NET AppHost Pack - 6.0.16 (x64), Version: 48.67.58427
+Name: Microsoft.NETCore.App.Runtime.Mono.android-x86 (x64), Version: 7.0.5.0
+Name: Blue Cat's Chorus VST-x64 (v4.43), Version: 4.43
+Name: Microsoft.NET.Workload.Mono.Toolchain.net7.Manifest (x64), Version: 56.3.58437
+Name: Microsoft.MacCatalyst.Ref (x64), Version: 16.4.7054.0
+Name: Microsoft System CLR Types ��� SQL Server 2019, Version: 15.0.2000.5
+Name: Python 3.11.2 Core Interpreter (64-bit), Version: 3.11.2150.0
+Name: Yamaha Steinberg USB Driver, Version: 2.0.4
+Name: Native Instruments Replika, Version: 1.6.3.22
+Name: Python 3.12.5 Standard Library (64-bit), Version: 3.12.5150.0
+Name: Microsoft.iOS.Templates (x64), Version: 16.4.7054.0
+Name: Microsoft ASP.NET Core 6.0.16 Shared Framework (x64), Version: 6.0.16.23174
+Name: Microsoft.iOS.Sdk (x64), Version: 16.4.47.0
+Name: Microsoft Windows Desktop Runtime - 7.0.5 (x64), Version: 56.23.58485
+Name: Canon TS3100 series MP Drivers, Version: 1.02
+Name: EZdrummer 2 64-bit Update, Version: 2.1.1
+Name: BIAS FX Plugins Pack (64bit), Version: 1.6.1.3174
+Name: AMD Settings, Version: 2024.0220.1122.1996
+Name: Microsoft ASP.NET Core 7.0.5 Targeting Pack (x64), Version: 7.0.5.23174
+Name: SynthMaster Player Free VST/AAX/Standalone Software Synthesizer v2.9 (Revision 12886) version 2.9.15, Version: 2.9.15
+Name: Microsoft.Maui.Core.Runtime.any (x64), Version: 7.0.86.0
+Name: Microsoft.NET.Workload.Mono.Toolchain.net6.Manifest (x64), Version: 56.3.58437
+Name: .NET Android Templates (x64), Version: 33.0.46.0
+Name: Microsoft.iOS.Windows.Sdk (x64), Version: 16.4.47.0
+Name: Microsoft.MacCatalyst.Runtime.maccatalyst-arm64 (x64), Version: 16.4.7054.0
+Name: Microsoft.NETCore.App.Runtime.Mono.ios-arm (x64), Version: 7.0.5.0
+Name: Microsoft .NET 6.0 Templates 7.0.302 (x64), Version: 24.7.65457
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64 (x64), Version: 6.0.16.0
+Name: Microsoft Visual C++ 2010 Redistributable - x64 10.0.40219, Version: 10.0.40219
+Name: U-24 Driver, Version: 1.2.0.18
+Name: Microsoft.Maui.Controls.Runtime.any (x64), Version: 7.0.86.0
+Name: Microsoft.Maui.Core.Ref.win (x64), Version: 7.0.86.0
+Name: Microsoft.Maui.Essentials.Ref.any (x64), Version: 7.0.86.0
+Name: M-Audio M-Track 2X2 1.0.13, Version: 1.0.13
+Name: Python 3.11.2 Documentation (64-bit), Version: 3.11.2150.0
+Name: Microsoft.Maui.Core.Ref.android (x64), Version: 7.0.86.0
+Name: Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40649 False, Version: 12.0.40649
+Name: CMake, Version: 3.30.0
+Name: Microsoft.iOS.Runtime.ios-arm (x64), Version: 16.4.7054.0
+Name: Native Instruments Kontakt Factory Selection 2, Version: 1.1.0.2
+Name: vs_minshellx64msi, Version: 17.10.34804
+Name: Microsoft.NETCore.App.Runtime.Mono.maccatalyst-arm64 (x64), Version: 7.0.5.0
+Name: Microsoft .NET AppHost Pack - 6.0.16 (x64_arm), Version: 48.67.58427
+Name: Bedroom Producers Blog BPB Saturator version v1.0.0, Version: v1.0.0
+Name: Blue Cat's Flanger VST-x64 (v3.43), Version: 3.43
+Name: Microsoft.Maui.Controls.Ref.any (x64), Version: 7.0.86.0
+Name: Python 3.12.5 Add to Path (64-bit), Version: 3.12.5150.0
+Name: Microsoft.NET.Workload.Mono.Toolchain.net6.Manifest (x64), Version: 64.28.16731
+Name: Microsoft.NET.Workload.Emscripten.net6.Manifest (x64), Version: 56.35.58417
+Name: Application Verifier x64 External Package (OnecoreUAP), Version: 10.1.22621.3233
+Name: Universal CRT Tools x64, Version: 10.1.22621.3233
+Name: Blue Cat's Freeceiver VST-x64 (v2.06), Version: 2.06
+Name: Application Verifier x64 External Package, Version: 10.1.22000.832
+Name: Native Instruments Raum, Version: 1.3.3.22
+Name: JetBrains ETW Host Service (x64), Version: 16.36.0
+Name: Blue Cat's Freeware Pack VST-x64 (v2.6), Version: 2.6
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.0 False, Version: 9.0.30729
+Name: Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.60610 False, Version: 11.0.60610
+Name: teVirtualMIDI64, Version: 1.3.0.43
+Name: Microsoft Visual C++ 2022 X64 Debug Runtime - 14.40.33810, Version: 14.40.33810
+Name: Microsoft.Android.Runtime.33.android-x86 (x64), Version: 33.0.46.0
+Name: Microsoft.NETCore.App.Runtime.Mono.android-x64 (x64), Version: 6.0.16.0
+Name: Microsoft.Maui.Graphics (x64), Version: 7.0.86.0
+Name: Microsoft.MacCatalyst.Sdk (x64), Version: 16.4.47.0
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022 False, Version: 9.0.21022
+Name: Altiverb 7 Uninstaller, Version: 7.2
+Name: Microsoft SQL Server 2019 LocalDB , Version: 15.0.4153.1
+Name: Microsoft .NET AppHost Pack - 6.0.32 (x64_x86), Version: 48.128.16743
+Name: Microsoft.NET.Runtime.MonoAOTCompiler.Task (x64), Version: 6.0.16.0
+Name: Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030, Version: 11.0.61030
+Name: Microsoft.NET.Sdk.tvOS.Manifest-8.0.100 (x64), Version: 17.2.8053
+Name: Steinberg Groove Agent 5, Version: 5.1.10
+Name: Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.51106 False, Version: 11.0.51106
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x86 (x64), Version: 7.0.5.0
+Name: Microsoft.Maui.Core.Runtime.ios (x64), Version: 7.0.86.0
+Name: Microsoft .NET Targeting Pack - 7.0.5 (x64), Version: 56.23.58437
+Name: Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64 (x64), Version: 7.0.5.0
+Name: Microsoft .NET Host FX Resolver - 8.0.7 (x64), Version: 64.28.16731
+Name: Python 3.12.5 Documentation (64-bit), Version: 3.12.5150.0
+Name: Microsoft.Maui.Sdk (x64), Version: 7.0.86.0
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-x86 (x64), Version: 7.0.5.0
+Name: Microsoft .NET Runtime - 6.0.32 (x64), Version: 48.128.16743
+Name: Microsoft .NET 7.0 Templates 7.0.302 (x64), Version: 28.7.32689
+Name: Python 3.9.7 Utility Scripts (64-bit), Version: 3.9.7150.0
+Name: Microsoft Command Line Utilities 15 for SQL Server, Version: 15.0.1300.359
+Name: Microsoft .NET AppHost Pack - 6.0.32 (x64_arm64), Version: 48.128.16743
+Name: Microsoft.NET.Sdk.iOS.Manifest-8.0.100 (x64), Version: 17.2.8053
+Name: Native Instruments Irish Harp, Version: 1.0.1.1
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm (x64), Version: 6.0.16.0
+Name: Focusrite FAST plugins bundle v1.0.3, Version: 1.0.3
+Name: Branding64, Version: 1.00.0009
+Name: Microsoft.Maui.Essentials.Ref.ios (x64), Version: 7.0.86.0
+Name: Microsoft.MacCatalyst.Runtime.maccatalyst-x64 (x64), Version: 16.4.7054.0
+Name: Microsoft.Maui.Essentials.Runtime.android (x64), Version: 7.0.86.0
+Name: Python 3.12.5 Executables (64-bit), Version: 3.12.5150.0
+Name: LABS version 3.2.5, Version: 3.2.5
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.4148 False, Version: 9.0.30729.4148
+Name: OpenShot Video Editor 3.0.0, Version: 3.0.0
+Name: Microsoft.Maui.Controls.Ref.ios (x64), Version: 7.0.86.0
+Name: Microsoft.iOS.Ref (x64), Version: 16.4.7054.0
+Name: Microsoft.Maui.Core.Ref.any (x64), Version: 7.0.86.0
+Name: Microsoft .NET AppHost Pack - 6.0.16 (x64_arm64), Version: 48.67.58427
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729 False, Version: 9.0.30729
+Name: Microsoft .NET SDK 7.0.302 (x64) from Visual Studio, Version: 7.3.223.25905
+Name: Microsoft.Maui.Sdk (x64), Version: 6.0.553.0
+Name: Microsoft.NET.Sdk.MacCatalyst.Manifest-8.0.100 (x64), Version: 17.2.8053
+Name: Microsoft.Maui.Core.Runtime.android (x64), Version: 7.0.86.0
+Name: Bogren Digital Krimh Drums Free, Version: 1.0.0.1
+Name: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40664, Version: 12.0.40664
+Name: Microsoft.NET.Sdk.Android.Manifest-7.0.100 (x64), Version: 33.0.46
+Name: IIS 10.0 Express, Version: 10.0.07728
+Name: Bonjour, Version: 3.1.0.1
+Name: Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40660 False, Version: 12.0.40660
+Name: Native Instruments Hypha, Version: 1.1.1.1
+Name: Node.js, Version: 20.17.0
+Name: Microsoft.Maui.Core.Runtime.win (x64), Version: 7.0.86.0
+Name: Microsoft Visual C++ 2022 X64 Additional Runtime - 14.40.33810, Version: 14.40.33810
+Name: Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.51106 False, Version: 11.0.51106
+Name: Microsoft.MacCatalyst.Sdk (x64), Version: 16.4.7054.0
+Name: Microsoft.NETCore.App.Runtime.Mono.android-arm64 (x64), Version: 6.0.16.0
+Name: uJAM Bundle, Version: 2022.6
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.6161, Version: 9.0.30729.6161
+Name: Superior Drummer 3 64-bit, Version: 3.0.1
+Name: Microsoft ASP.NET Core 6.0.32 Targeting Pack (x64), Version: 6.0.32.24314
+Name: Microsoft.NET.Runtime.MonoTargets.Sdk (x64), Version: 7.0.5.0
+Name: icecap_collection_x64, Version: 17.10.34804
+Name: Microsoft.Maui.Core.Ref.maccatalyst (x64), Version: 7.0.86.0
+Name: Microsoft.Maui.Core.Runtime.maccatalyst (x64), Version: 7.0.86.0
+Name: Native Instruments Reaktor 6, Version: 6.5.0.0
+Name: BIAS FX 2 Plugins Pack (64bit), Version: 2.1.10.4950
+Name: Microsoft.Maui.Essentials.Runtime.maccatalyst (x64), Version: 7.0.86.0
+Name: Microsoft.Maui.Essentials.Runtime.win (x64), Version: 7.0.86.0
+Name: Microsoft.Android.Runtime.33.android-arm (x64), Version: 33.0.46.0
+Name: Python 3.9.7 Test Suite (64-bit), Version: 3.9.7150.0
+Name: Native Instruments Kontakt, Version: 6.8.0.0
+Name: Blue Cat's Gain Suite VST-x64 (v3.45), Version: 3.45
+Name: Microsoft.iOS.Runtime.ios-arm64 (x64), Version: 16.4.7054.0
+Name: Python 3.11.2 Standard Library (64-bit), Version: 3.11.2150.0
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.59192 False, Version: 8.0.59192
+Name: Python 3.11.2 Utility Scripts (64-bit), Version: 3.11.2150.0
+Name: Microsoft.Maui.Essentials.Runtime.any (x64), Version: 7.0.86.0
+Name: Python 3.11.2 pip Bootstrap (64-bit), Version: 3.11.2150.0
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.50727.42 False, Version: 8.0.50727.42
+Name: Python 3.9.7 Tcl/Tk Support (64-bit), Version: 3.9.7150.0
+Name: Microsoft ASP.NET Core 8.0.7 Targeting Pack (x64), Version: 8.0.7.24314
+Name: Python 3.11.2 Tcl/Tk Support (64-bit), Version: 3.11.2150.0
+Name: Microsoft Visual Studio Installer, Version: 3.11.2180.21897
+Name: Microsoft.iOS.Runtime.iossimulator-arm64 (x64), Version: 16.4.7054.0
+Name: Microsoft.MacCatalyst.Templates (x64), Version: 16.4.7054.0
+Name: Oracle VirtualBox 7.1.2, Version: 7.1.2
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-arm64 (x64), Version: 6.0.16.0
+Name: SampleTank 4 version 4.2.3, Version: 4.2.3
+Name: Microsoft.NET.Runtime.MonoAOTCompiler.Task (x64), Version: 7.0.5.0
+Name: �஢�ઠ ࠡ��ᯮᮡ���� �� Windows, Version: 3.2.2110.14001
+Name: Windows App Certification Kit Native Components, Version: 10.1.22621.3233
+Name: Microsoft ASP.NET Core 6.0.16 Targeting Pack (x64), Version: 6.0.16.23174
+Name: �����প� �ணࠬ� Apple (64 ���), Version: 8.7
+Name: T-RackS 5 version 5.10.4, Version: 5.10.4
+Name: Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.60610 False, Version: 11.0.60610
+Name: DaVinci Resolve Control Panels, Version: 2.0.1.0
+Name: Microsoft .NET 6.0 Templates 8.0.303 (x64), Version: 24.15.56572
+Name: Microsoft .NET AppHost Pack - 7.0.5 (x64_arm64), Version: 56.23.58437
+Name: Microsoft.NET.Workload.Emscripten.net6.Manifest (x64), Version: 64.28.16721
+Name: Microsoft .NET Runtime - 7.0.5 (x64), Version: 56.23.58437
+Name: Microsoft.Maui.Controls.Runtime.ios (x64), Version: 7.0.86.0
+Name: Microsoft.Maui.Graphics.Win2D.WinUI.Desktop (x64), Version: 7.0.86.0
+Name: Native Instruments Traktor Audio 2 MK2 Driver, Version: 4.2.0.99
+Name: Microsoft.Android.Runtime.33.android-arm64 (x64), Version: 33.0.46.0
+Name: Microsoft.NET.Workload.Emscripten.net7.Manifest (x64), Version: 64.28.16721
+Name: Microsoft.NETCore.App.Runtime.Mono.maccatalyst-arm64 (x64), Version: 6.0.16.0
+Name: MixBox version 1.5.0, Version: 1.5.0
+Name: Windows SDK DirectX x64 Remote, Version: 10.1.22621.3233
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x86 (x64), Version: 6.0.16.0
+Name: Blue Cat's Free Amp VST-x64 (v1.23), Version: 1.23
+Name: Microsoft Windows Desktop Runtime - 6.0.16 (x64), Version: 48.67.58484
+Name: LibreOffice 7.3.0.3, Version: 7.3.0.3
+Name: Microsoft.NETCore.App.Runtime.Mono.ios-arm (x64), Version: 6.0.16.0
+Name: Microsoft.NET.Workload.Mono.Toolchain.Current.Manifest (x64), Version: 64.28.16731
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.17 False, Version: 9.0.30729
+Name: Microsoft .NET SDK 8.0.303 (x64) from Visual Studio, Version: 8.3.324.31708
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.5570 False, Version: 9.0.30729.5570
+Name: Python 3.11.2 Test Suite (64-bit), Version: 3.11.2150.0
+Name: Java(TM) SE Development Kit 16.0.2 (64-bit), Version: 16.0.2.0
+Name: Microsoft.Android.Runtime.33.android-x64 (x64), Version: 33.0.46.0
+Name: vs_Graphics_Singletonx64, Version: 17.10.34804
+Name: Python 3.9.7 Executables (64-bit), Version: 3.9.7150.0
+Name: Microsoft ODBC Driver 17 for SQL Server, Version: 17.7.2.1
+Name: iCloud, Version: 7.21.0.23
+Name: Microsoft Windows Desktop Runtime - 6.0.32 (x64), Version: 48.128.16742
+Name: Python 3.9.7 Core Interpreter (64-bit), Version: 3.9.7150.0
+Name: AMD DVR64, Version: 1.0.2
+Name: Application Verifier x64 External Package, Version: 10.1.19041.685
+Name: Microsoft .NET AppHost Pack - 7.0.5 (x64), Version: 56.23.58437
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-x86 (x64), Version: 6.0.16.0
+Name: Microsoft.NETCore.App.Runtime.Mono.android-x86 (x64), Version: 6.0.16.0
+Name: Office 16 Click-to-Run Licensing Component, Version: 16.0.18429.20158
+Name: Office 16 Click-to-Run Extensibility Component, Version: 16.0.18429.20158
+Name: Office 16 Click-to-Run Localization Component, Version: 16.0.13127.20616
+Name: Office 16 Click-to-Run Localization Component, Version: 16.0.18429.20158
+Name: Microsoft .NET AppHost Pack - 8.0.7 (x64_x86), Version: 64.28.16731
+Name: Microsoft.NET.Sdk.macOS.Manifest-7.0.100 (x64), Version: 13.3.7054
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.4048 False, Version: 9.0.30729.4048
+Name: vs_devenx64vmsi, Version: 17.10.34803
+Name: TONEX version 1.7.2, Version: 1.7.2
+Name: Native Instruments Kontakt 7, Version: 7.10.1.0
+Name: Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.21005 False, Version: 12.0.21005
+Name: DiagnosticsHub_CollectionService, Version: 17.10.34627
+Name: Blackmagic RAW Common Components, Version: 2.2
+Name: Microsoft.NETCore.App.Runtime.Mono.ios-arm64 (x64), Version: 6.0.16.0
+Name: Native Instruments Guitar Rig 7, Version: 7.0.2.0
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x64 (x64), Version: 7.0.5.0
+Name: Helm, Version: 0.9.0.0
+Name: AtlasVPN, Version: 2.5.4.0
+Name: Python 3.9.7 Development Libraries (64-bit), Version: 3.9.7150.0
+Name: Microsoft.Maui.Controls.Ref.maccatalyst (x64), Version: 7.0.86.0
+Name: Microsoft.iOS.Sdk (x64), Version: 16.4.7054.0
+Name: Microsoft .NET AppHost Pack - 7.0.5 (x64_x86), Version: 56.23.58437
+Name: Microsoft.NET.Workload.Mono.Toolchain.net7.Manifest (x64), Version: 64.28.16731
+Name: vs_communityx64msi, Version: 17.10.34804
+Name: Python 3.11.2 Development Libraries (64-bit), Version: 3.11.2150.0
+Name: vs_minshellinteropx64msi, Version: 17.10.34803
+Name: Microsoft.Maui.Essentials.Ref.win (x64), Version: 7.0.86.0
+Name: Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.50727 False, Version: 11.0.50727
+Name: Microsoft .NET Targeting Pack - 6.0.16 (x64), Version: 48.67.58427
+Name: Python 3.12.5 Development Libraries (64-bit), Version: 3.12.5150.0
+Name: Acon Digital Multiply (64 bit) 1.3.1, Version: 1.3.1
+Name: Microsoft .NET Standard Targeting Pack - 2.1.0 (x64), Version: 24.0.28113
+Name: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 False, Version: 12.0.21005
+Name: MODO DRUM version 1.5.0, Version: 1.5.0
+Name: Microsoft Teams Meeting Add-in for Microsoft Office, Version: 1.24.14501
+Name: Microsoft .NET Toolset 7.0.302 (x64), Version: 28.6.65457
+Name: Microsoft.Android.Sdk.Windows (x64), Version: 33.0.46.0
+Name: Microsoft.NET.Sdk.Maui.Manifest-8.0.100 (x64), Version: 8.0.61
+Name: Python 3.9.7 Documentation (64-bit), Version: 3.9.7150.0
+Name: Steinberg Library Manager, Version: 3.2.20
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.51011 False, Version: 8.0.51011
+Name: Native Instruments NTKDaemon, Version: 1.17.2.0
+Name: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40649 False, Version: 12.0.40649
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm64 (x64), Version: 6.0.16.0
+Name: Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.50727 False, Version: 11.0.50727
+Name: Microsoft.Android.Sdk.Windows (x64), Version: 32.0.485.0
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.61000, Version: 8.0.61000
+Name: PACE License Support Win64, Version: 5.9.0.4455
+Name: Apple Mobile Device Support, Version: 18.0.0.32
+Name: Tenable Nessus (x64), Version: 10.8.3.20010
+Name: Microsoft .NET AppHost Pack - 7.0.5 (x64_arm), Version: 56.23.58437
+Name: Microsoft.NET.Runtime.MonoTargets.Sdk (x64), Version: 6.0.16.0
+Name: Microsoft Web Deploy 4.0, Version: 10.0.7225
+Name: Microsoft.NETCore.App.Runtime.Mono.android-arm64 (x64), Version: 7.0.5.0
+Name: Python 3.12.5 Core Interpreter (64-bit), Version: 3.12.5150.0
+Name: Microsoft.Maui.Essentials.Ref.maccatalyst (x64), Version: 7.0.86.0
+Name: Microsoft.NETCore.App.Runtime.Mono.android-arm (x64), Version: 6.0.16.0
+Name: Microsoft.Maui.Essentials.Ref.android (x64), Version: 7.0.86.0
+Name: Microsoft.NET.Sdk.macOS.Manifest-8.0.100 (x64), Version: 14.2.8053
+Name: Microsoft ASP.NET Core 8.0.7 Shared Framework (x64), Version: 8.0.7.24314
+Name: Microsoft.Android.Ref.33 (x64), Version: 33.0.46.0
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.50727.4053 False, Version: 8.0.50727.4053
+Name: Microsoft.NET.Sdk.iOS.Manifest-7.0.100 (x64), Version: 16.4.7054
+Name: Microsoft .NET Host FX Resolver - 7.0.5 (x64), Version: 56.23.58437
+Name: iTunes, Version: 12.13.4.4
+Name: LANDR Chromatic Plugin, Version: 1.19.10
+Name: Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.40.33810, Version: 14.40.33810
+Name: EZdrummer 2 64-bit, Version: 2.0.0
+Name: Microsoft .NET AppHost Pack - 8.0.7 (x64_arm64), Version: 64.28.16731
+Name: Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64 (x64), Version: 6.0.16.0
+Name: Microsoft.NET.Sdk.Maui.Manifest-7.0.100 (x64), Version: 7.0.86
+Name: Microsoft.Maui.Controls.Runtime.maccatalyst (x64), Version: 7.0.86.0
+Name: RyzenMasterSDK, Version: 1.2.3.5
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022.218 False, Version: 9.0.21022.218
+Name: Microsoft.NET.Workload.Emscripten.net7.Manifest (x64), Version: 56.35.58417
+Name: Microsoft.NETCore.App.Runtime.Mono.android-x64 (x64), Version: 7.0.5.0
+Name: Python 3.12.5 Test Suite (64-bit), Version: 3.12.5150.0
+Name: Microsoft.NETCore.App.Runtime.Mono.android-arm (x64), Version: 7.0.5.0
+Name: VS JIT Debugger, Version: 17.0.125.0
+Name: Python 3.12.5 Tcl/Tk Support (64-bit), Version: 3.12.5150.0
+Name: Python 3.12.5 pip Bootstrap (64-bit), Version: 3.12.5150.0
+Name: Microsoft Update Health Tools, Version: 5.72.0.0
+Name: Microsoft .NET Runtime - 6.0.16 (x64), Version: 48.67.58427
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64 (x64), Version: 7.0.5.0
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm64 (x64), Version: 7.0.5.0
+Name: Microsoft .NET Toolset 8.0.303 (x64), Version: 32.8.56572
+Name: Application Verifier x64 External Package (DesktopEditions), Version: 10.1.22621.3233
+Name: Microsoft .NET AppHost Pack - 6.0.32 (x64_arm), Version: 48.128.16743
+Name: Microsoft.iOS.Windows.Sdk (x64), Version: 16.4.7054.0
+Name: Microsoft .NET Runtime - 8.0.7 (x64), Version: 64.28.16731
+Name: Blue Cat's Triple EQ VST-x64 (v4.45), Version: 4.45
+Name: Microsoft Windows Desktop Targeting Pack - 7.0.5 (x64), Version: 56.23.58485
+Name: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40660 False, Version: 12.0.40660
+Name: Blue Cat's FreqAnalyst VST-x64 (v2.43), Version: 2.43
+Name: Microsoft.Maui.Core.Ref.ios (x64), Version: 7.0.86.0
+Name: Microsoft .NET Host - 7.0.5 (x64), Version: 56.23.58437
+Name: Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030, Version: 11.0.61030
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022.0 False, Version: 9.0.21022
+Name: Microsoft.NET.Sdk.Aspire.Manifest-8.0.100 (x64), Version: 64.0.15042
+Name: Microsoft Windows Desktop Targeting Pack - 8.0.7 (x64), Version: 64.28.16739
+Name: Microsoft.NET.Sdk.tvOS.Manifest-7.0.100 (x64), Version: 16.4.7054
+Name: Microsoft ASP.NET Core 7.0.5 Shared Framework (x64), Version: 7.0.5.23174
+Name: Native Instruments Supercharger, Version: 1.4.7.22
+Name: Microsoft.AspNetCore.Components.WebView.Maui (x64), Version: 7.0.86.0
+Name: Native Instruments Creator Tools, Version: 1.4.0.0
+Name: VS Script Debugging Common, Version: 17.0.125.0
+Name: Microsoft.NETCore.App.Runtime.Mono.ios-arm64 (x64), Version: 7.0.5.0
+Name: Microsoft .NET Targeting Pack - 8.0.7 (x64), Version: 64.28.16731
+Name: Microsoft.Maui.Controls.Ref.android (x64), Version: 7.0.86.0
+Name: Python 3.11.2 Executables (64-bit), Version: 3.11.2150.0
+Name: Microsoft .NET 8.0 Templates 8.0.303 (x64), Version: 32.9.56572
+Name: AmpliTube 5 version 5.8.1, Version: 5.8.1
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30411 False, Version: 9.0.30411
+Name: Microsoft Visual C++ 2010 Redistributable - x64 10.0.30319 False, Version: 10.0.30319
+Name: .NET MAUI Templates (x64), Version: 7.0.86.0
+Name: Microsoft Windows Desktop Targeting Pack - 6.0.16 (x64), Version: 48.67.58484
+Name: Microsoft.iOS.Runtime.iossimulator-x86 (x64), Version: 16.4.7054.0
+Name: PuTTY release 0.77 (64-bit), Version: 0.77.0.0
+Name: Microsoft .NET Targeting Pack - 6.0.32 (x64), Version: 48.128.16743
+Name: Microsoft.NETCore.App.Runtime.Mono.iossimulator-arm64 (x64), Version: 7.0.5.0
+Name: Native Instruments Yangqin, Version: 1.0.0.12
+Name: Microsoft .NET Host - 8.0.7 (x64), Version: 64.28.16731
+Name: Microsoft.Maui.Essentials.Runtime.ios (x64), Version: 7.0.86.0
+Name: Microsoft .NET AppHost Pack - 6.0.16 (x64_x86), Version: 48.67.58427
+Name: Microsoft.NET.Workload.Emscripten.Current.Manifest (x64), Version: 64.28.16721
+Name: Microsoft.Maui.Controls.Runtime.win (x64), Version: 7.0.86.0
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm (x64), Version: 7.0.5.0
+Name: DaVinci Resolve, Version: 17.4.30010
+Name: .NET MAUI Templates (x64), Version: 6.0.553.0
+Name: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-x64 (x64), Version: 6.0.16.0
+Name: Microsoft.Maui.Resizetizer.Sdk (x64), Version: 7.0.86.0
+Name: Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.4148.0 False, Version: 9.0.30729.4148
+Name: Microsoft.NET.Sdk.Android.Manifest-8.0.100 (x64), Version: 34.0.95
+Name: Microsoft ASP.NET Core 6.0.32 Shared Framework (x64), Version: 6.0.32.24314
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.57102 False, Version: 8.0.57102
+Name: Microsoft ASP.NET Core Module V2 for IIS Express, Version: 17.0.22116.0
+Name: Python 3.9.7 pip Bootstrap (64-bit), Version: 3.9.7150.0
+Name: Microsoft Build of OpenJDK with Hotspot 11.0.16.1+1 (x64), Version: 11.0.16.101
+Name: FluxCenter-64-bit, Version: 23.11.0.50341
+Name: Java(TM) SE Development Kit 18.0.2.1 (64-bit), Version: 18.0.2.1
+Name: Microsoft Visual C++ 2005 Redistributable - x64 8.0.58298 False, Version: 8.0.58298
+Name: Microsoft.NET.Sdk.MacCatalyst.Manifest-7.0.100 (x64), Version: 16.4.7054
+Name: Microsoft Windows Desktop Runtime - 8.0.7 (x64), Version: 64.28.16739
+Name: Microsoft.Maui.Controls.Runtime.android (x64), Version: 7.0.86.0
+Name: Blue Cat's Phaser VST-x64 (v3.43), Version: 3.43
+Name: Microsoft .NET AppHost Pack - 6.0.32 (x64), Version: 48.128.16743
+Name: IntelliTraceProfilerProxy, Version: 15.0.21225.01
+Name: Epic Games Launcher Prerequisites (x64), Version: 1.0.0.0
+Name: Microsoft ASP.NET Core Module for IIS Express, Version: 12.2.18292.0
+Name: Microsoft Windows Desktop Targeting Pack - 6.0.32 (x64), Version: 48.128.16742
+Name: Unity Hub 2.4.5, Version: 2.4.5
