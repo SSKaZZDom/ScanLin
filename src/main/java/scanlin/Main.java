@@ -6,6 +6,7 @@ import scanlin.model.parser.DataStorage;
 import scanlin.model.parser.Vulnerability;
 
 import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
@@ -34,7 +35,11 @@ public class Main {
         }*/
 
         // Код, обновляющий базу данных
-        //model.updateDataBase();
+        try {
+            model.updateDataBase();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         // Код, ищущий уровень опасности и url уязвимости
         /*List<String> vul = model.getVulnerabilityURL("BDU:2019-01206");
@@ -42,6 +47,6 @@ public class Main {
         */
 
         // Код, который парсит бд в список уязвимостей
-        DataStorage dataStorage = model.getDataStorage();
+        //DataStorage dataStorage = model.getDataStorage();
     }
 }

@@ -23,7 +23,11 @@ public class Model implements ModelInterface{
     @Override
     public void updateDataBase() {
         DataBaseManager dbManager = new DataBaseManager();
-        dbManager.updateDB();
+        try {
+            dbManager.updateDB();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

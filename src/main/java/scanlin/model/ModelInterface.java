@@ -10,7 +10,7 @@ import java.util.Map;
 public interface ModelInterface {
     public String getPath() throws IOException;
     public List<Map<String,String>> getProgramList();
-    public void updateDataBase();
+    public void updateDataBase() throws IOException;
     public List<String> getVulnerabilityURL(String id);
     public DataStorage getDataStorage();
 
