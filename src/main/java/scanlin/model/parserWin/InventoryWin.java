@@ -1,23 +1,25 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
+
+import scanlin.model.Storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory extends Storage{
+public class InventoryWin extends Storage {
     private String id;
     private String description;
-    private Criteria criteria;
+    private CriteriaWin criteria;
     private String product;
     private String title;
     private List<String> platforms;
 
-    public Inventory() {
-        this.criteria = new Criteria();
+    public InventoryWin() {
+        this.criteria = new CriteriaWin();
         this.platforms = new ArrayList<>();
     }
 
-    public Inventory(String id, String description, Criteria criteria, String product,
-                         String title, List<String> platforms) {
+    public InventoryWin(String id, String description, CriteriaWin criteria, String product,
+                        String title, List<String> platforms) {
         this.id = id;
         this.description = description;
         this.criteria = criteria;
@@ -33,11 +35,11 @@ public class Inventory extends Storage{
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public Criteria getCriteria() {
+    public CriteriaWin getCriteria() {
         return this.criteria;
     }
 
-    public void setCriteria(Criteria criteria) {
+    public void setCriteria(CriteriaWin criteria) {
         this.criteria = criteria;
     }
 

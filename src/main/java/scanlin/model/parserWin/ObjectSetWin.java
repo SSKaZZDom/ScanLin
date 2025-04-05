@@ -1,13 +1,12 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-class ObjectSet {
+class ObjectSetWin {
     private List<String> objectRefs = new ArrayList<>();
-    private List<Filter> filters = new ArrayList<>();
-    private List<ObjectSet> nestedSets = new ArrayList<>(); // Для вложенных set
+    private List<FilterWin> filters = new ArrayList<>();
+    private List<ObjectSetWin> nestedSets = new ArrayList<>(); // Для вложенных set
 
     // Геттеры и Сеттеры
     public List<String> getObjectRefs() {
@@ -18,19 +17,19 @@ class ObjectSet {
         this.objectRefs = objectRefs;
     }
 
-    public List<Filter> getFilters() {
+    public List<FilterWin> getFilters() {
         return filters;
     }
 
-    public void setFilters(List<Filter> filters) {
+    public void setFilters(List<FilterWin> filters) {
         this.filters = filters;
     }
 
-    public List<ObjectSet> getNestedSets() {
+    public List<ObjectSetWin> getNestedSets() {
         return nestedSets;
     }
 
-    public void setNestedSets(List<ObjectSet> nestedSets) {
+    public void setNestedSets(List<ObjectSetWin> nestedSets) {
         this.nestedSets = nestedSets;
     }
 
@@ -40,12 +39,12 @@ class ObjectSet {
     }
 
     // Метод для добавления фильтра
-    public void addFilter(Filter filter) {
+    public void addFilter(FilterWin filter) {
         this.filters.add(filter);
     }
 
     // Метод для добавления вложенного Set
-    public void addNestedSet(ObjectSet nestedSet) {
+    public void addNestedSet(ObjectSetWin nestedSet) {
         this.nestedSets.add(nestedSet);
     }
 }

@@ -1,6 +1,6 @@
-package scanlin.model.parser;
+package scanlin.model;
 
-abstract class Storage {
+public abstract class Storage {
     protected String id;
 
     public Storage() {

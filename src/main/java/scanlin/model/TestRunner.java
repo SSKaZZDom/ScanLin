@@ -1,16 +1,16 @@
 package scanlin.model;
 
-import scanlin.model.parser.DataStorage;
-import scanlin.model.parser.State;
-import scanlin.model.parser.Test;
+import scanlin.model.parserWin.DataStorageWin;
+import scanlin.model.parserWin.StateWin;
+import scanlin.model.parserWin.TestWin;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestRunner {
-    public boolean runTest(Test test, DataStorage dataStorage) {
+    public boolean runTest(TestWin test, DataStorageWin dataStorage) {
         Object object = dataStorage.findObject(test.getObject());
-        List<State> states = new ArrayList<>();
+        List<StateWin> states = new ArrayList<>();
         for (String stateId : test.getStates()) {
             states.add(dataStorage.findState(stateId));
         }

@@ -1,14 +1,13 @@
 package scanlin.model;
 
-import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ar.ArArchiveEntry;
 import org.apache.commons.compress.archivers.ar.ArArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.xz.XZCompressorInputStream;
-import scanlin.model.parser.DataStorage;
-import scanlin.model.parser.OvalParser;
-import scanlin.model.parser.Vulnerability;
+import scanlin.model.parserWin.DataStorageWin;
+import scanlin.model.parserWin.OvalParserWin;
+import scanlin.model.parserWin.VulnerabilityWin;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -20,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseManager {
-    private DataStorage dataStorage;
-    public DataStorage getDataStorage() {
-        OvalParser ovalParser = new OvalParser();
+    private DataStorageWin dataStorage;
+    public DataStorageWin getDataStorage() {
+        OvalParserWin ovalParser = new OvalParserWin();
         this.dataStorage = ovalParser.ovalParsing();
         return this.dataStorage;
     }
@@ -38,7 +37,7 @@ public class DataBaseManager {
 
     public List<String> vulnerabilitySearch(String id) {
         List<String> res = new ArrayList<>();
-        for (Vulnerability vul : dataStorage.getVulnerabilities()) {
+        for (VulnerabilityWin vul : dataStorage.getVulnerabilities()) {
             if (vul.getFstec_id().equals(id)) {
                 res.add(vul.getFstec_url());
                 res.add(vul.getSeverity());

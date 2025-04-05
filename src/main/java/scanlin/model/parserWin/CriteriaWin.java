@@ -1,27 +1,27 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Criteria {
+public class CriteriaWin {
     private String operator;
     private List<String> definitions;
     private List<String> tests;
-    private List<Criteria> criteria;
-    public Criteria () {
+    private List<CriteriaWin> criteria;
+    public CriteriaWin() {
         this.tests = new ArrayList<>();
         this.definitions = new ArrayList<>();
         this.criteria = new ArrayList<>();
     }
 
-    public Criteria(String operator) {
+    public CriteriaWin(String operator) {
         this.tests = new ArrayList<>();
         this.definitions = new ArrayList<>();
         this.operator = operator;
         this.criteria = new ArrayList<>();
     }
 
-    public void addCriteria(Criteria criteria) {
+    public void addCriteria(CriteriaWin criteria) {
         this.criteria.add(criteria);
     }
     public void addTest(String test) {
@@ -36,7 +36,7 @@ public class Criteria {
         this.operator = operator;
     }
 
-    public List<Criteria> getCriteria() {
+    public List<CriteriaWin> getCriteria() {
         return criteria;
     }
 

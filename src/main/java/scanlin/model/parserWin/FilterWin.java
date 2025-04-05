@@ -1,10 +1,10 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
 
-class Filter {
+class FilterWin {
     private String action;
     private String stateId;
-    public Filter() {}
-    public Filter(String action, String stateId) {
+    public FilterWin() {}
+    public FilterWin(String action, String stateId) {
         this.action = action;
         this.stateId = stateId;
     }

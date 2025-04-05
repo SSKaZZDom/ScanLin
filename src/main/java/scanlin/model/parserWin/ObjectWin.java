@@ -1,9 +1,11 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
+
+import scanlin.model.Storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SystemObject extends Storage {
+public class ObjectWin extends Storage {
     private String id;
     private String type;
     private String name;
@@ -14,9 +16,9 @@ public class SystemObject extends Storage {
     private String hive;
     private String key;
     private String operation;
-    private List<Filter> filters;
+    private List<FilterWin> filters;
     private String windowsView;
-    private ObjectSet set;
+    private ObjectSetWin set;
     private String pattern;
     private String xpath;
     private String cmdCommand;
@@ -27,7 +29,7 @@ public class SystemObject extends Storage {
     private int maxDepth;
 
     // Конструктор по умолчанию
-    public SystemObject() {
+    public ObjectWin() {
         filters = new ArrayList<>();
         select = new ArrayList<>();
     }
@@ -88,16 +90,16 @@ public class SystemObject extends Storage {
     public String getWql() { return wql; }
     public void setWql(String wql) { this.wql = wql; }
 
-    public List<Filter> getFilters() { return filters; }
-    public void setFilters(List<Filter> filters) { this.filters = filters; }
-    public void addFilter(Filter filter) { this.filters.add(filter); }
+    public List<FilterWin> getFilters() { return filters; }
+    public void setFilters(List<FilterWin> filters) { this.filters = filters; }
+    public void addFilter(FilterWin filter) { this.filters.add(filter); }
 
     public List<String> getSelect() { return select; }
     public void setSelect(List<String> select) { this.select = select; }
     public void addSelect(String select) { this.select.add(select); }
 
-    public ObjectSet getSet() { return set; }
-    public void setSet(ObjectSet set) { this.set = set; }
+    public ObjectSetWin getSet() { return set; }
+    public void setSet(ObjectSetWin set) { this.set = set; }
 
     @Override
     public String toString() {

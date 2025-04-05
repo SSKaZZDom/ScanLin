@@ -1,20 +1,22 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
+
+import scanlin.model.Storage;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DataStorage {
-    List<Vulnerability> vulnerabilities;
-    List<Inventory> inventories;
-    List<Test> tests;
-    List<SystemObject> objects;
-    List<State> states;
-    List<Variable> variables;
+public class DataStorageWin {
+    List<VulnerabilityWin> vulnerabilities;
+    List<InventoryWin> inventories;
+    List<TestWin> tests;
+    List<ObjectWin> objects;
+    List<StateWin> states;
+    List<VariableWin> variables;
 
-    public DataStorage(List<Vulnerability> listA, List<Inventory> listB, List<Test> listC,
-                       List<SystemObject> listD, List<State> listE, List<Variable> listF) {
+    public DataStorageWin(List<VulnerabilityWin> listA, List<InventoryWin> listB, List<TestWin> listC,
+                          List<ObjectWin> listD, List<StateWin> listE, List<VariableWin> listF) {
         this.vulnerabilities = listA;
         this.inventories = listB;
         this.tests = listC;
@@ -30,31 +32,31 @@ public class DataStorage {
     }
 
     // Геттеры, если нужно
-    public List<Vulnerability> getVulnerabilities() {
+    public List<VulnerabilityWin> getVulnerabilities() {
         return vulnerabilities;
     }
 
-    public List<Inventory> getInventories() {
+    public List<InventoryWin> getInventories() {
         return inventories;
     }
 
-    public List<Test> getTests() {
+    public List<TestWin> getTests() {
         return tests;
     }
 
-    public List<SystemObject> getObjects() {
+    public List<ObjectWin> getObjects() {
         return objects;
     }
 
-    public List<State> getStates() {
+    public List<StateWin> getStates() {
         return states;
     }
 
-    public List<Variable> getVariables() {
+    public List<VariableWin> getVariables() {
         return variables;
     }
 
-    private void listSort (List<? extends  Storage> list) {
+    private void listSort (List<? extends Storage> list) {
         list.sort(Comparator.comparingInt(s -> extractNumber(s.getId())));
     }
 
@@ -84,27 +86,27 @@ public class DataStorage {
         return null;
     }
 
-    public Vulnerability findVulnerability(String id) {
+    public VulnerabilityWin findVulnerability(String id) {
         return binarySearch(vulnerabilities, id);
     }
 
-    public Inventory findInventory(String id) {
+    public InventoryWin findInventory(String id) {
         return binarySearch(inventories, id);
     }
 
-    public Test findTest(String id) {
+    public TestWin findTest(String id) {
         return binarySearch(tests, id);
     }
 
-    public SystemObject findObject(String id) {
+    public ObjectWin findObject(String id) {
         return binarySearch(objects, id);
     }
 
-    public State findState(String id) {
+    public StateWin findState(String id) {
         return binarySearch(states, id);
     }
 
-    public Variable findVariable(String id) {
+    public VariableWin findVariable(String id) {
         return binarySearch(variables, id);
     }
 }

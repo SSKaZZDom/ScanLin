@@ -1,9 +1,11 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
+
+import scanlin.model.Storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test extends Storage{
+public class TestWin extends Storage {
     String id;
     String type;
     String check;
@@ -11,11 +13,11 @@ public class Test extends Storage{
     String xmlns;
     String object;
     List<String> states;
-    public Test() {
+    public TestWin() {
         states = new ArrayList<>();
     }
-    public Test(String type, String id, String check, String checkExistence,
-                String xmlns, String object, List<String> states) {
+    public TestWin(String type, String id, String check, String checkExistence,
+                   String xmlns, String object, List<String> states) {
         this.check = check;
         this.id = id;
         this.checkExistence = checkExistence;

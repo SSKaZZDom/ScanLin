@@ -1,40 +1,47 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
+
+import scanlin.model.Storage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class State extends Storage{
-    private String type;
-    private String xmlns;
+public class VariableWin extends Storage {
     private String id;
+    private String datatype;
+    private String type;
     private List<HashMap<String, String>> values;
-
-    public State() {
+    private List<String> constantValues;
+    public VariableWin() {
         values = new ArrayList<>();
+        constantValues = new ArrayList<>();
     }
-    public String getType() {
-        return type;
-    }
-
-    public String getXmlns() {
-        return xmlns;
-    }
-
     public String getId() {
         return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setDatatype(String datatype) {
+        this.datatype = datatype;
+    }
+    public String getDatatype() {
+        return this.datatype;
+    }
+    public String getType() {
+        return this.type;
     }
     public void setType(String type) {
         this.type = type;
     }
-
-    public void setXmlns(String xmlns) {
-        this.xmlns = xmlns;
+    public List<String> getConstantValues() {
+        return this.constantValues;
     }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setConstantValues(List<String> constantValues) {
+        this.constantValues = constantValues;
+    }
+    public void addConstantValues(String constantValue) {
+        this.constantValues.add(constantValue);
     }
     public List<HashMap<String, String>> getValues() {
         return values;
@@ -97,14 +104,19 @@ public class State extends Storage{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("State {");
-        sb.append("type='").append(type).append("', ");
-        sb.append("xmlns='").append(xmlns).append("', ");
+        sb.append("Variable {");
         sb.append("id='").append(id).append("', ");
-        sb.append("values=");
-        sb.append(values);
-        sb.append(" }");
-
+        sb.append("datatype='").append(datatype).append("', ");
+        sb.append("type='").append(type).append("'");
+        sb.append("\n");
+        if (type.equals("constant")) {
+            sb.append("values=");
+            sb.append(constantValues);
+        } else {
+            sb.append("values=");
+            sb.append(values);
+        }
+        sb.append("\n");
         return sb.toString();
     }
 }

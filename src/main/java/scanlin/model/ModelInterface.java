@@ -1,7 +1,6 @@
 package scanlin.model;
 
-import scanlin.model.parser.DataStorage;
-import scanlin.model.parser.Vulnerability;
+import scanlin.model.parserWin.DataStorageWin;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,6 +11,6 @@ public interface ModelInterface {
     public List<Map<String,String>> getProgramList();
     public void updateDataBase() throws IOException;
     public List<String> getVulnerabilityURL(String id);
-    public DataStorage getDataStorage();
+    public DataStorageWin getDataStorage();
 
 }

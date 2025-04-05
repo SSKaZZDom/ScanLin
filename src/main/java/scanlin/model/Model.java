@@ -1,7 +1,6 @@
 package scanlin.model;
 
-import scanlin.model.parser.DataStorage;
-import scanlin.model.parser.Vulnerability;
+import scanlin.model.parserWin.DataStorageWin;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +36,7 @@ public class Model implements ModelInterface{
     }
 
     @Override
-    public DataStorage getDataStorage(){
+    public DataStorageWin getDataStorage(){
         DataBaseManager dbManager = new DataBaseManager();
         return dbManager.getDataStorage();
     }

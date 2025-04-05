@@ -1,18 +1,18 @@
-package scanlin.model.parser;
+package scanlin.model.parserWin;
 
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class OvalParser {
+public class OvalParserWin {
 
-    public DataStorage ovalParsing() {
-        List<Vulnerability> vulnerabilities = new ArrayList<>();
-        List<Inventory> inventories = new ArrayList<>();
-        List<Test> tests = new ArrayList<>();
-        List<SystemObject> objects = new ArrayList<>();
-        List<Variable> vars = new ArrayList<>();
+    public DataStorageWin ovalParsing() {
+        List<VulnerabilityWin> vulnerabilities = new ArrayList<>();
+        List<InventoryWin> inventories = new ArrayList<>();
+        List<TestWin> tests = new ArrayList<>();
+        List<ObjectWin> objects = new ArrayList<>();
+        List<VariableWin> vars = new ArrayList<>();
         String filePath = "data/scanoval.xml";
         File file = new File(filePath);
 
@@ -23,10 +23,10 @@ public class OvalParser {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
-            Vulnerability vul = new Vulnerability();
-            Inventory inventory = new Inventory();
-            List<State> states = new ArrayList<>();
-            Test test = new Test();
+            VulnerabilityWin vul = new VulnerabilityWin();
+            InventoryWin inventory = new InventoryWin();
+            List<StateWin> states = new ArrayList<>();
+            TestWin test = new TestWin();
             int cnt;
             boolean inventoryFlag = false;
 
@@ -36,11 +36,11 @@ public class OvalParser {
                 if (line.contains("<definition")) {
                     if (line.contains("class=\"inventory\"")) {
                         inventoryFlag = true;
-                        inventory = new Inventory();
+                        inventory = new InventoryWin();
                         String regex = "id=\"(.*?)\"";
                         inventory.setId(extractValue(line, regex));
                     } else if (line.contains("class=\"vulnerability\"")) {
-                        vul = new Vulnerability();
+                        vul = new VulnerabilityWin();
                         String regex = "id=\"(.*?)\"";
                         vul.setId(extractValue(line, regex));
                         inventoryFlag = false;
@@ -139,70 +139,70 @@ public class OvalParser {
 
             while (!(line = reader.readLine()).contains("</tests>")) {
                 if (line.contains("<file_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("file");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<registry_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("registry");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<variable_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("variable");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<textfilecontent54_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("textfilecontent54");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<xmlfilecontent_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("xmlfilecontent");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<wmi57_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("wmi57");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<cmdlet_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("cmdlet");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<family_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("family");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<environmentvariable58_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("environmentvariable58");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
                     test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
                 } else if (line.contains("<service_test")) {
-                    test = new Test();
+                    test = new TestWin();
                     test.setType("service");
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
@@ -216,10 +216,10 @@ public class OvalParser {
                     tests.add(test);
                 }
             }
-            SystemObject obj = new SystemObject();
+            ObjectWin obj = new ObjectWin();
             while (!(line = reader.readLine()).contains("</objects>")) {
                 line = line.trim();
-                Filter filter;
+                FilterWin filter;
                 if (line.contains("<environmentvariable58_object") ||
                         line.contains("<xmlfilecontent_object") ||
                         line.contains("<cmdlet_object") ||
@@ -230,7 +230,7 @@ public class OvalParser {
                         line.contains("<registry_object") ||
                         line.contains("<variable_object") ||
                         line.contains("<service_object")) {
-                    obj = new SystemObject();
+                    obj = new ObjectWin();
                     obj.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_object"))); // Определяем тип (file, registry и т. д.)
                     obj.setId(extractValue(line, "id=\"(.*?)\""));
                     obj.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
@@ -263,7 +263,7 @@ public class OvalParser {
                 } else if (line.contains("<namespace>")) {
                     obj.setNamespace(extractValue(line, "<namespace>(.*?)</namespace>"));
                 } else if (line.contains("<filter") || line.contains("<ns1:filter")) {
-                    filter = new Filter();
+                    filter = new FilterWin();
                     filter.setAction(extractValue(line, "action=\"(.*?)\""));
                     filter.setStateId(extractValue(line, "(.*?)"));
                     obj.addFilter(filter);
@@ -315,7 +315,7 @@ public class OvalParser {
                     objects.add(obj);
                 }
             }
-            State state = new State();
+            StateWin state = new StateWin();
             HashMap<String, String> value;
             while (!(line = reader.readLine()).contains("</states")){
                 if (line.contains("<xmlfilecontent_state") ||
@@ -327,7 +327,7 @@ public class OvalParser {
                         line.contains("<registry_state") ||
                         line.contains("<variable_state") ||
                         line.contains("<service_state")) {
-                    state = new State();
+                    state = new StateWin();
                     state.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_state")));
                     state.setId(extractValue(line, "id=\"(.*?)\""));
                     state.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
@@ -455,7 +455,7 @@ public class OvalParser {
                 }
             }
 
-            Variable var = new Variable();
+            VariableWin var = new VariableWin();
             int concatCnt = 0;
             int concatFlag = 0;
             boolean unique = false;
@@ -463,7 +463,7 @@ public class OvalParser {
             while (!(line = reader.readLine()).contains("</variables")) {
                 value = new HashMap<>();
                 if (line.contains("<local_variable") || line.contains("oval-def:local_variable") || line.contains("<constant_variable")) {
-                    var = new Variable();
+                    var = new VariableWin();
                     var.setId(extractValue(line, "id=\"(.*?)\""));
                     var.setDatatype(extractValue(line, "datatype=\"(.*?)\""));
                     var.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_variable")));
@@ -533,7 +533,7 @@ public class OvalParser {
                     previsiousLine.put("character", extractValue(line, "character=\"(.*?)\""));
                 }
             }
-            DataStorage result = new DataStorage(vulnerabilities, inventories, tests, objects, states, vars);
+            DataStorageWin result = new DataStorageWin(vulnerabilities, inventories, tests, objects, states, vars);
             if (result != null) {
                 return result;
             } else {
@@ -547,16 +547,16 @@ public class OvalParser {
     }
 
 
-    private ObjectSet setParser(List<String> lines) {
-        ObjectSet result = new ObjectSet();
-        Filter filter;
+    private ObjectSetWin setParser(List<String> lines) {
+        ObjectSetWin result = new ObjectSetWin();
+        FilterWin filter;
         int count = 0;
         List<String> subSet;
         for (int cnt = 1; cnt < lines.size(); cnt++) {
             if (lines.get(cnt).contains("<object_reference>")) {
                 result.addObjectRef(extractValue(lines.get(cnt), "oval:ru\\.altx-soft\\.win:obj:(\\d+)"));
             } else if ((lines.get(cnt).contains("<filter"))) {
-                filter = new Filter();
+                filter = new FilterWin();
                 filter.setAction(extractValue(lines.get(cnt), "action=\"(.*?)\""));
                 filter.setStateId(extractValue(lines.get(cnt), "oval:ru\\.altx-soft\\.win:ste:(\\d+)"));
                 result.addFilter(filter);
@@ -580,8 +580,8 @@ public class OvalParser {
         }
         return result;
     }
-    private Criteria criteriaParser(List<String> lines) {
-        Criteria result = new Criteria();
+    private CriteriaWin criteriaParser(List<String> lines) {
+        CriteriaWin result = new CriteriaWin();
         int count;
         List<String> subCriteria;
         if (lines.get(0).contains("operator=\"")) {
