@@ -5,6 +5,9 @@ import org.apache.commons.compress.archivers.ar.ArArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.xz.XZCompressorInputStream;
+import scanlin.model.parserLin.DataStorageLin;
+import scanlin.model.parserLin.OvalParserLin;
+import scanlin.model.parserLin.VulnerabilityLin;
 import scanlin.model.parserWin.DataStorageWin;
 import scanlin.model.parserWin.OvalParserWin;
 import scanlin.model.parserWin.VulnerabilityWin;
@@ -19,11 +22,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseManager {
-    private DataStorageWin dataStorage;
-    public DataStorageWin getDataStorage() {
-        OvalParserWin ovalParser = new OvalParserWin();
-        this.dataStorage = ovalParser.ovalParsing();
-        return this.dataStorage;
+    private DataStorageWin dataStorageWin;
+    private DataStorageLin dataStorageLin;
+    public DataStorageWin getDataStorageWin() {
+        OvalParserWin ovalParserWin = new OvalParserWin();
+        this.dataStorageWin = ovalParserWin.ovalParsing();
+        return this.dataStorageWin;
+    }
+
+    public DataStorageLin getDataStorageLin() {
+        OvalParserLin ovalParserLin = new OvalParserLin();
+        this.dataStorageLin = ovalParserLin.ovalParsing();
+        return this.dataStorageLin;
     }
     public static void updateDB() throws IOException {
         downloadDB("data/scanoval.xml", "http://bdu.fstec.ru/files/scanoval.xml");
@@ -35,9 +45,21 @@ public class DataBaseManager {
         System.out.println("✅ XML-файл извлечён: " + extractedXml.toAbsolutePath());
     }
 
-    public List<String> vulnerabilitySearch(String id) {
+    public List<String> vulnerabilitySearchWin(String id) {
         List<String> res = new ArrayList<>();
-        for (VulnerabilityWin vul : dataStorage.getVulnerabilities()) {
+        for (VulnerabilityWin vul : dataStorageWin.getVulnerabilities()) {
+            if (vul.getFstec_id().equals(id)) {
+                res.add(vul.getFstec_url());
+                res.add(vul.getSeverity());
+                return res;
+            }
+        }
+        return null;
+    }
+
+    public List<String> vulnerabilitySearchLin(String id) {
+        List<String> res = new ArrayList<>();
+        for (VulnerabilityLin vul : dataStorageLin.getVulnerabilities()) {
             if (vul.getFstec_id().equals(id)) {
                 res.add(vul.getFstec_url());
                 res.add(vul.getSeverity());

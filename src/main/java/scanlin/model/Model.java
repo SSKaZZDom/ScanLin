@@ -1,5 +1,6 @@
 package scanlin.model;
 
+import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserWin.DataStorageWin;
 
 import java.io.IOException;
@@ -32,12 +33,23 @@ public class Model implements ModelInterface{
     @Override
     public List<String> getVulnerabilityURL(String id){
         DataBaseManager dbManager = new DataBaseManager();
-        return dbManager.vulnerabilitySearch(id);
+        if (dbManager.vulnerabilitySearchWin(id) != null) {
+            return dbManager.vulnerabilitySearchWin(id);
+        } else if (dbManager.vulnerabilitySearchLin(id) != null) {
+            return dbManager.vulnerabilitySearchLin(id);
+        }
+        return null;
     }
 
     @Override
-    public DataStorageWin getDataStorage(){
+    public DataStorageWin getDataStorageWin(){
         DataBaseManager dbManager = new DataBaseManager();
-        return dbManager.getDataStorage();
+        return dbManager.getDataStorageWin();
+    }
+
+    @Override
+    public DataStorageLin getDataStorageLin(){
+        DataBaseManager dbManager = new DataBaseManager();
+        return dbManager.getDataStorageLin();
     }
 }

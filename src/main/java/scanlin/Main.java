@@ -2,6 +2,7 @@ package scanlin;
 
 import scanlin.model.Model;
 import scanlin.model.ModelInterface;
+import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserWin.DataStorageWin;
 
 import java.io.IOException;
@@ -43,7 +44,10 @@ public class Main {
         System.out.println(vul.get(0) + " " + vul.get(1));
         */
 
-        // Код, который парсит бд в список уязвимостей
-        DataStorageWin dataStorage = model.getDataStorage();
+        // Код, который парсит бд в список уязвимостей ДЛЯ ВИНДЫ
+        //DataStorageWin dataStorageWin = model.getDataStorageWin();
+
+        //Код, который парсит бд в список уязвимостей ДЛЯ ЛИНУКСА
+        DataStorageLin dataStorageLin = model.getDataStorageLin();
     }
 }

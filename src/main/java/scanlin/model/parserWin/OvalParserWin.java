@@ -136,74 +136,13 @@ public class OvalParserWin {
             }
 
             // Парсер для тестов
-
             while (!(line = reader.readLine()).contains("</tests>")) {
-                if (line.contains("<file_test")) {
+                if (line.contains("<file_test") || line.contains("<registry_test") || line.contains("<variable_test") ||
+                    line.contains("<textfilecontent54_test") || line.contains("<xmlfilecontent_test") ||
+                    line.contains("<wmi57_test") || line.contains("<cmdlet_test") || line.contains("<family_test") ||
+                    line.contains("<environmentvariable58_test") || line.contains("<service_test")) {
                     test = new TestWin();
-                    test.setType("file");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<registry_test")) {
-                    test = new TestWin();
-                    test.setType("registry");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<variable_test")) {
-                    test = new TestWin();
-                    test.setType("variable");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<textfilecontent54_test")) {
-                    test = new TestWin();
-                    test.setType("textfilecontent54");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<xmlfilecontent_test")) {
-                    test = new TestWin();
-                    test.setType("xmlfilecontent");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<wmi57_test")) {
-                    test = new TestWin();
-                    test.setType("wmi57");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<cmdlet_test")) {
-                    test = new TestWin();
-                    test.setType("cmdlet");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<family_test")) {
-                    test = new TestWin();
-                    test.setType("family");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<environmentvariable58_test")) {
-                    test = new TestWin();
-                    test.setType("environmentvariable58");
-                    test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                    test.setId(extractValue(line, "id=\"(.*?)\""));
-                    test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
-                    test.setCheck(extractValue(line, "check=\"([^\"]+)\""));
-                } else if (line.contains("<service_test")) {
-                    test = new TestWin();
-                    test.setType("service");
+                    test.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_test")));
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     test.setId(extractValue(line, "id=\"(.*?)\""));
                     test.setCheckExistence(extractValue(line, "check_existence=\"([^\"]+)\""));
@@ -212,7 +151,10 @@ public class OvalParserWin {
                     test.setObject(extractValue(line, "object_ref=\"(.*?)\""));
                 } else if (line.contains("<state")) {
                     test.addState(extractValue(line, "state_ref=\"(.*?)\""));
-                } else if (line.contains("</")) {
+                } else if (line.contains("</file_test") || line.contains("</registry_test") || line.contains("</variable_test") ||
+                        line.contains("</textfilecontent54_test") || line.contains("</xmlfilecontent_test") ||
+                        line.contains("</wmi57_test") || line.contains("</cmdlet_test") || line.contains("</family_test") ||
+                        line.contains("</environmentvariable58_test") || line.contains("</service_test")) {
                     tests.add(test);
                 }
             }
