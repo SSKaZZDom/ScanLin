@@ -14,5 +14,5 @@ public interface ModelInterface {
     public List<String> getVulnerabilityURL(String id);
     public DataStorageWin getDataStorageWin();
     public DataStorageLin getDataStorageLin();
-
+    public String getOS();
 }

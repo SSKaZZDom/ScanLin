@@ -52,4 +52,11 @@ public class Model implements ModelInterface{
         DataBaseManager dbManager = new DataBaseManager();
         return dbManager.getDataStorageLin();
     }
+
+    @Override
+    public String getOS() {
+        OSAnalyzer osAnalyzer = new OSAnalyzer();
+        //osAnalyzer.printOSInfo();
+        return osAnalyzer.getOSName();
+    }
 }

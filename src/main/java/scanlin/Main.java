@@ -48,6 +48,9 @@ public class Main {
         //DataStorageWin dataStorageWin = model.getDataStorageWin();
 
         //Код, который парсит бд в список уязвимостей ДЛЯ ЛИНУКСА
-        DataStorageLin dataStorageLin = model.getDataStorageLin();
+        //DataStorageLin dataStorageLin = model.getDataStorageLin();
+
+        //Код для получения операционной системы
+        model.getOS();
     }
 }
