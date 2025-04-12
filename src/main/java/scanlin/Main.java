@@ -2,10 +2,12 @@ package scanlin;
 
 import scanlin.model.Model;
 import scanlin.model.ModelInterface;
+import scanlin.model.TestRunner;
 import scanlin.model.parserLin.DataStorageLin;
-import scanlin.model.parserWin.DataStorageWin;
+import scanlin.model.parserLin.TestLin;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,9 +50,18 @@ public class Main {
         //DataStorageWin dataStorageWin = model.getDataStorageWin();
 
         //Код, который парсит бд в список уязвимостей ДЛЯ ЛИНУКСА
-        //DataStorageLin dataStorageLin = model.getDataStorageLin();
+        DataStorageLin storage = model.getDataStorageLin();
 
         //Код для получения операционной системы
-        model.getOS();
+        //model.getOS();
+
+        //Код, запускающий проверку всех тестов
+        List<TestLin> tests = storage.getTests();
+        TestRunner testRunner = new TestRunner();
+        for (TestLin test : tests) {
+            if (testRunner.checkTest(test, storage)) {
+                System.out.println(test);
+            }
+        }
     }
 }

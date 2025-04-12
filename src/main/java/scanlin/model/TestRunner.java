@@ -1,12 +1,20 @@
 package scanlin.model;
 
+import org.apache.commons.lang3.tuple.Pair;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.ObjectLin;
 import scanlin.model.parserLin.StateLin;
 import scanlin.model.parserLin.TestLin;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TestRunner {
 
@@ -14,44 +22,46 @@ public class TestRunner {
 
     public boolean checkTest(TestLin test, DataStorageLin storage) {
         ObjectLin object = storage.findObject(test.getObject());
-        List<String> stateRefs = test.getStates();
+        StateLin state = storage.findState(test.getState());
 
-        for (String stateRef : stateRefs) {
-            StateLin state = storage.findState(stateRef);
-            if (checkStateAgainstObject(state, object)) {
-                return true;
-            }
-        }
-
-        return false;
+        return checkStateAgainstObject(state, object, storage);
     }
 
-    private boolean checkStateAgainstObject(StateLin state, ObjectLin object) {
-        for (HashMap<String, String> stateValue : state.getValues()) {
-            String tag = stateValue.get("tag");
+    private boolean checkStateAgainstObject(StateLin state, ObjectLin object, DataStorageLin storage) {
+        if (object.getType().equals("dpkginfo")) {
+            HashMap<String, String> stateValue = state.getValue();
             String expectedValue = stateValue.get("value");
             String operation = stateValue.get("operation");
-            String datatype = stateValue.get("datatype");
 
-            HashMap<String, String> objectValue = object.getValue(tag);
-            if (objectValue == null) {
+            List<HashMap<String, String>> objectValues = object.getValues();
+            if (objectValues == null) {
                 return false;
             }
 
-            String actualValue = objectValue.get("name");
-
-            if (datatype.equals("debian_evr_string")) {
-                if (!compareDebianVersion(actualValue, expectedValue, operation)) {
-                    return false;
+            List<String> actualValues = new ArrayList<>();
+            if (objectValues.get(0).get("operation").equals("pattern match")) {
+                String patternName =  objectValues.get(0).get("name");
+                List<String> packageNames = getMatchingInstalledPackages(patternName);
+                if (objectValues.size() == 2) {
+                    actualValues = filterVersionsByRegex(packageNames, storage.findState(objectValues.get(1).get("value")).getValue().get("value"));
+                } else {
+                    for (String packageName : packageNames) {
+                        actualValues.add(getInstalledVersion(packageName));
+                    }
                 }
-            } else {
-                if (!compareStrings(actualValue, expectedValue, operation)) {
-                    return false;
+            }
+            else {
+                String packageName = objectValues.get(0).get("name");
+                actualValues.add(getInstalledVersion(packageName));
+            }
+
+            for (String actualValue : actualValues) {
+                if (compareDebianVersion(actualValue, expectedValue, operation)) {
+                    return true;
                 }
             }
         }
-
-        return true;
+        return false;
     }
 
     private boolean compareStrings(String actual, String expected, String operation) {
@@ -94,5 +104,65 @@ public class TestRunner {
                 System.out.println("Unknown debian version operation: " + operation);
                 return false;
         }
+    }
+
+    private static String getInstalledVersion(String packageName) {
+        try {
+            ProcessBuilder processBuilder = new ProcessBuilder("dpkg-query", "-W", "-f=${Version}", packageName);
+            Process process = processBuilder.start();
+            process.waitFor();
+
+            Scanner scanner = new Scanner(process.getInputStream()).useDelimiter("\\A");
+            String result = scanner.hasNext() ? scanner.next().trim() : null;
+
+            if (result == null || result.isEmpty()) {
+                return null;
+            }
+
+            return result;
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static List<String> getMatchingInstalledPackages(String regex) {
+        List<String> matchingPackages = new ArrayList<>();
+        Pattern pattern = Pattern.compile(regex);
+
+        try {
+            Process process = Runtime.getRuntime().exec("dpkg-query -W -f='${Package}\n'");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim().replaceAll("^'|'$", ""); // Убираем лишние кавычки, если есть
+                if (pattern.matcher(line).matches()) {
+                    matchingPackages.add(line);
+                }
+            }
+
+            process.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return matchingPackages;
+    }
+
+    private static List<String> filterVersionsByRegex(List<String> packageNames, String regex) {
+        List<String> matchedVersions = new ArrayList<>();
+        Pattern pattern = Pattern.compile(regex);
+
+        for (String packageName : packageNames) {
+            if (pattern.matcher(packageName).matches()) {
+                String version = getInstalledVersion(packageName);
+                if (version != null && !version.isEmpty()) {
+                    matchedVersions.add(version);
+                }
+            }
+        }
+
+        return matchedVersions;
     }
 }

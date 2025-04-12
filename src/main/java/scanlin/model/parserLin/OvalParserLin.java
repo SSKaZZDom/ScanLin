@@ -154,20 +154,19 @@ public class OvalParserLin {
                 } else if (line.contains("<object")) {
                     test.setObject(extractValue(line, "object_ref=\"(.*?)\""));
                 } else if (line.contains("<state")) {
-                    test.addState(extractValue(line, "state_ref=\"(.*?)\""));
+                    test.setState(extractValue(line, "state_ref=\"(.*?)\""));
                 } else if (line.contains("</dpkginfo_test") || line.contains("</rpminfo_test") ||
                         line.contains("</textfilecontent54_test") || line.contains("</family_test")) {
                     tests.add(test);
                 }
             }
-
             while (!(line = reader.readLine()).contains("</objects>")) {
                 if (line.contains("<dpkginfo_object") ||
                         line.contains("<rpminfo_object") ||
                         line.contains("<family_object") ||
                         line.contains("<textfilecontent54_object")) {
                     obj = new ObjectLin();
-                    obj.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_object"))); // Определяем тип (file, registry и т. д.)
+                    obj.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_object")));
                     obj.setId(extractValue(line, "id=\"(.*?)\""));
                     obj.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
                     if (line.contains("/>")) {
@@ -215,7 +214,6 @@ public class OvalParserLin {
                     objects.add(obj);
                 }
             }
-
             while (!(line = reader.readLine()).contains("</states")){
                 if (line.contains("<dpkginfo_state") ||
                         line.contains("<rpminfo_state") ||
@@ -229,33 +227,33 @@ public class OvalParserLin {
                     value = new HashMap<>();
                     value.put("tag", "family");
                     value.put("value", extractValue(line, ">(.*?)</"));
-                    state.addValue(value);
+                    state.setValue(value);
                 } else if (line.contains("<release")) {
                     value = new HashMap<>();
                     value.put("tag", "release");
                     value.put("value", extractValue(line, ">(.*?)</"));
                     value.put("datatype", extractValue(line, "datatype=\"(.*?)\""));
                     value.put("operation", extractValue(line, "operation=\"(.*?)\""));
-                    state.addValue(value);
+                    state.setValue(value);
                 } else if (line.contains("<subexpression")) {
                     value = new HashMap<>();
                     value.put("tag", "subexpression");
                     value.put("value", extractValue(line, ">(.*?)</"));
                     value.put("operation", extractValue(line, "operation=\"(.*?)\""));
-                    state.addValue(value);
+                    state.setValue(value);
                 } else if (line.contains("<version")) {
                     value = new HashMap<>();
                     value.put("tag", "version");
                     value.put("value", extractValue(line, ">(.*?)</"));
                     value.put("operation", extractValue(line, "operation=\"(.*?)\""));
-                    state.addValue(value);
+                    state.setValue(value);
                 } else if (line.contains("<evr")) {
                     value = new HashMap<>();
                     value.put("tag", "evr");
                     value.put("value", extractValue(line, ">(.*?)</"));
                     value.put("datatype", extractValue(line, "datatype=\"(.*?)\""));
                     value.put("operation", extractValue(line, "operation=\"(.*?)\""));
-                    state.addValue(value);
+                    state.setValue(value);
                 } else if (line.contains("</dpkginfo_state") ||
                         line.contains("</rpminfo_state") ||
                         line.contains("</family_state") ||

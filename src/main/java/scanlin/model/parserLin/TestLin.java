@@ -14,18 +14,17 @@ public class TestLin extends Storage {
     String checkExistence;
     String xmlns;
     String object;
-    List<String> states;
+    String state;
     public TestLin() {
-        states = new ArrayList<>();
     }
     public TestLin(String type, String id, String check, String checkExistence,
-                   String xmlns, String object, List<String> states) {
+                   String xmlns, String object, String state) {
         this.check = check;
         this.id = id;
         this.checkExistence = checkExistence;
         this.xmlns = xmlns;
         this.object = object;
-        this.states = states;
+        this.state = state;
         this.type = type;
     }
     @Override
@@ -53,8 +52,8 @@ public class TestLin extends Storage {
         return object;
     }
 
-    public List<String> getStates() {
-        return states;
+    public String getState() {
+        return state;
     }
 
     @Override
@@ -82,13 +81,10 @@ public class TestLin extends Storage {
         this.object = object;
     }
 
-    public void setStates(List<String> states) {
-        this.states = states;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public void addState(String state) {
-        this.states.add(state);
-    }
 
     @Override
     public String toString() {
@@ -98,7 +94,7 @@ public class TestLin extends Storage {
                 ", check='" + check + '\'' +
                 ", checkExistence='" + checkExistence + '\'' +
                 ", object='" + object + '\'' +
-                ", states=" + states.toString() +
+                ", state='" + state + '\'' +
                 '}';
     }
 }
