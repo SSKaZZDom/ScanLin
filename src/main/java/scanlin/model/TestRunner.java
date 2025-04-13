@@ -21,8 +21,14 @@ public class TestRunner {
     private final DebianVersionComparator debianComparator = new DebianVersionComparator();
 
     public boolean checkTest(TestLin test, DataStorageLin storage) {
-        ObjectLin object = storage.findObject(test.getObject());
-        StateLin state = storage.findState(test.getState());
+        ObjectLin object = new ObjectLin();
+        StateLin state = new StateLin();
+        if (test.getObject() != null) {
+            object = storage.findObject(test.getObject());
+        }
+        if (test.getState() != null) {
+            state = storage.findState(test.getState());
+        }
 
         return checkStateAgainstObject(state, object, storage);
     }
@@ -39,20 +45,21 @@ public class TestRunner {
             }
 
             List<String> actualValues = new ArrayList<>();
-            if (objectValues.get(0).get("operation").equals("pattern match")) {
-                String patternName =  objectValues.get(0).get("name");
-                List<String> packageNames = getMatchingInstalledPackages(patternName);
-                if (objectValues.size() == 2) {
-                    actualValues = filterVersionsByRegex(packageNames, storage.findState(objectValues.get(1).get("value")).getValue().get("value"));
-                } else {
-                    for (String packageName : packageNames) {
-                        actualValues.add(getInstalledVersion(packageName));
+            if (objectValues.get(0).containsKey("operation")) {
+                if (objectValues.get(0).get("operation").equals("pattern match")) {
+                    String patternName = objectValues.get(0).get("value");
+                    List<String> packageNames = getMatchingInstalledPackages(patternName);
+                    if (objectValues.size() == 2) {
+                        actualValues = filterVersionsByRegex(packageNames, storage.findState(objectValues.get(1).get("value")).getValue().get("value"));
+                    } else {
+                        for (String packageName : packageNames) {
+                            actualValues.add(getInstalledVersion(packageName));
+                        }
                     }
+                } else {
+                    String packageName = objectValues.get(0).get("value");
+                    actualValues.add(getInstalledVersion(packageName));
                 }
-            }
-            else {
-                String packageName = objectValues.get(0).get("name");
-                actualValues.add(getInstalledVersion(packageName));
             }
 
             for (String actualValue : actualValues) {
@@ -129,7 +136,6 @@ public class TestRunner {
     private static List<String> getMatchingInstalledPackages(String regex) {
         List<String> matchingPackages = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
-
         try {
             Process process = Runtime.getRuntime().exec("dpkg-query -W -f='${Package}\n'");
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

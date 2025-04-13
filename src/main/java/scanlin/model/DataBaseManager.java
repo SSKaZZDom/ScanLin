@@ -36,13 +36,17 @@ public class DataBaseManager {
         return this.dataStorageLin;
     }
     public static void updateDB() throws IOException {
-        downloadDB("data/scanoval.xml", "http://bdu.fstec.ru/files/scanoval.xml");
-        downloadDB("data/scanovalcontent_alse17.deb","https://bdu.fstec.ru/files/scanovalcontent_alse17.deb");
+        OSAnalyzer osAnalyzer = new OSAnalyzer();
+        if (osAnalyzer.isLinux()) {
+            downloadDB("data/scanovalcontent_alse17.deb","https://bdu.fstec.ru/files/scanovalcontent_alse17.deb");
 
-        Path debPath = Paths.get("data/scanovalcontent_alse17.deb");
-        Path extractedXml = extractXmlFromDeb(debPath, "var/lib/scanoval/data/AstraSE17VulnsOVAL.xml");
+            Path debPath = Paths.get("data/scanovalcontent_alse17.deb");
+            Path extractedXml = extractXmlFromDeb(debPath, "var/lib/scanoval/data/AstraSE17VulnsOVAL.xml");
 
-        System.out.println("✅ XML-файл извлечён: " + extractedXml.toAbsolutePath());
+            System.out.println("✅ XML-файл извлечён: " + extractedXml.toAbsolutePath());
+        } else {
+            downloadDB("data/scanoval.xml", "http://bdu.fstec.ru/files/scanoval.xml");
+        }
     }
 
     public List<String> vulnerabilitySearchWin(String id) {

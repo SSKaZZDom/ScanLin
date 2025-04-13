@@ -56,7 +56,7 @@ public class Model implements ModelInterface{
     @Override
     public String getOS() {
         OSAnalyzer osAnalyzer = new OSAnalyzer();
-        //osAnalyzer.printOSInfo();
+        osAnalyzer.printOSInfo();
         return osAnalyzer.getOSName();
     }
 }
