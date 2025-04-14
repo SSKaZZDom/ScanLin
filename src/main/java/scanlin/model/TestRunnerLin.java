@@ -66,25 +66,31 @@ public class TestRunnerLin {
                 }
             }
         } else if (test.getType().equals("rpminfo")) {
-            List<HashMap<String, String>> objectValues = object.getValues();
-            if (objectValues == null) {
-                return false;
-            }
-
-            if (objectValues.get(0).containsKey("operation")) {
-                if (objectValues.get(0).get("operation").equals("pattern match")) {
-                    String patternName = objectValues.get(0).get("value");
-                    if (objectValues.size() == 2) {
-                        String filter = storage.findState(objectValues.get(1).get("value")).getValue().get("value");
-                        return isRpmPackageInstalledRegex(patternName, filter);
-                    } else {
-                        return isRpmPackageInstalledRegex(patternName);
+            if (object == null) {
+                System.out.println(test);
+            } else {
+                List<HashMap<String, String>> objectValues = object.getValues();
+                if (objectValues == null) {
+                    return false;
+                }
+                if (isRpmAvailable()) {
+                    if (objectValues.get(0).containsKey("operation")) {
+                        if (objectValues.get(0).get("operation").equals("pattern match")) {
+                            String patternName = objectValues.get(0).get("value");
+                            if (objectValues.size() == 2) {
+                                String filter = storage.findState(objectValues.get(1).get("value")).getValue().get("value");
+                                return isRpmPackageInstalledRegex(patternName, filter);
+                            } else {
+                                return isRpmPackageInstalledRegex(patternName);
+                            }
+                        } else {
+                            String packageName = objectValues.get(0).get("value");
+                            return isRpmPackageInstalled(packageName);
+                        }
                     }
-                } else {
-                    String packageName = objectValues.get(0).get("value");
-                    return isRpmPackageInstalled(packageName);
                 }
             }
+            return false;
         } else if (test.getType().equals("textfilecontent54")) {
             List<HashMap<String, String>> objectValues = object.getValues();
             List<String> files = new ArrayList<>();
@@ -94,8 +100,7 @@ public class TestRunnerLin {
                     files = getMatchingFiles(objectValues.get(0).get("value"), objectValues.get(1).get("value"));
                 }
             } else {
-                files.add(objectValues.get(0).get("value") + '\\' + objectValues.get(1).get("value"));
-                System.out.println(files.get(0));
+                files.add(objectValues.get(0).get("value") + '/' + objectValues.get(1).get("value"));
             }
 
             List<String> lines = new ArrayList<>();
@@ -116,6 +121,8 @@ public class TestRunnerLin {
             } else {
                 return false;
             }
+        } else if (test.getType().equals("family")) {
+            return true;
         }
         return false;
     }
@@ -277,7 +284,6 @@ public class TestRunnerLin {
                 for (File file : files) {
                     if (file.isFile() && pattern.matcher(file.getName()).matches()) {
                         matchedFiles.add(directoryPath + file.getName());
-                        System.out.println(directoryPath + file.getName());
                     }
                 }
             }
@@ -318,5 +324,15 @@ public class TestRunnerLin {
         }
 
         return matchedStrings;
+    }
+
+    private static boolean isRpmAvailable() {
+        try {
+            Process process = new ProcessBuilder("which", "rpm").start();
+            int exitCode = process.waitFor();
+            return exitCode == 0;
+        } catch (IOException | InterruptedException e) {
+            return false;
+        }
     }
 }

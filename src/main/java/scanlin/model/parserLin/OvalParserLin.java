@@ -144,7 +144,7 @@ public class OvalParserLin {
 
             while (!(line = reader.readLine()).contains("</tests>")) {
                 if (line.contains("<dpkginfo_test") || line.contains("<rpminfo_test") ||
-                    line.contains("<textfilecontent54_test")) {
+                    line.contains("<textfilecontent54_test") || line.contains("<family_test")) {
                     test = new TestLin();
                     test.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_test")));
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
@@ -156,14 +156,15 @@ public class OvalParserLin {
                 } else if (line.contains("<state")) {
                     test.setState(extractValue(line, "state_ref=\"(.*?)\""));
                 } else if (line.contains("</dpkginfo_test") || line.contains("</rpminfo_test") ||
-                        line.contains("</textfilecontent54_test")) {
+                        line.contains("</textfilecontent54_test") || line.contains("</family_test")) {
                     tests.add(test);
                 }
             }
             while (!(line = reader.readLine()).contains("</objects>")) {
                 if (line.contains("<dpkginfo_object") ||
                         line.contains("<rpminfo_object") ||
-                        line.contains("<textfilecontent54_object")) {
+                        line.contains("<textfilecontent54_object") ||
+                        line.contains("<family_object")) {
                     obj = new ObjectLin();
                     obj.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_object")));
                     obj.setId(extractValue(line, "id=\"(.*?)\""));
@@ -211,14 +212,16 @@ public class OvalParserLin {
                     obj.addValue(value);
                 } else if (line.contains("</dpkginfo_object") ||
                         line.contains("</rpminfo_object") ||
-                        line.contains("</textfilecontent54_object")) {
+                        line.contains("</textfilecontent54_object") ||
+                        line.contains("</family_object")) {
                     objects.add(obj);
                 }
             }
             while (!(line = reader.readLine()).contains("</states")){
                 if (line.contains("<dpkginfo_state") ||
                         line.contains("<rpminfo_state") ||
-                        line.contains("<textfilecontent54_state")) {
+                        line.contains("<textfilecontent54_state") ||
+                        line.contains("<family_state")) {
                     state = new StateLin();
                     state.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_state")));
                     state.setId(extractValue(line, "id=\"(.*?)\""));
@@ -251,7 +254,8 @@ public class OvalParserLin {
                     state.setValue(value);
                 } else if (line.contains("</dpkginfo_state") ||
                         line.contains("</rpminfo_state") ||
-                        line.contains("</textfilecontent54_state")) {
+                        line.contains("</textfilecontent54_state") ||
+                        line.contains("</family_state")) {
                     states.add(state);
                 }
             }

@@ -59,7 +59,7 @@ public class Main {
         TestRunnerLin testRunner = new TestRunnerLin();
         for (TestLin test : tests) {
             if (testRunner.checkTest(test, storage)) {
-                System.out.println(test);
+                System.out.println(test + " is true");
             }
         }
     }
