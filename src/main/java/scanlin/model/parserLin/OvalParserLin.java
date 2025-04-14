@@ -2,6 +2,7 @@ package scanlin.model.parserLin;
 
 import scanlin.model.parserLin.*;
 import scanlin.model.parserWin.StateWin;
+import scanlin.model.parserWin.VariableWin;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,6 +19,7 @@ public class OvalParserLin {
         List<TestLin> tests = new ArrayList<>();
         List<StateLin> states = new ArrayList<>();
         List<ObjectLin> objects = new ArrayList<>();
+        List<VariableLin> variables = new ArrayList<>();
         String filePath = "data/AstraSE17VulnsOVAL.xml";
         File file = new File(filePath);
 
@@ -259,10 +261,50 @@ public class OvalParserLin {
                     states.add(state);
                 }
             }
+
+            VariableLin var = new VariableLin();
+            int concatFlag = 0;
+            HashMap<String,String> previsiousLine = new HashMap<>();
+            while (!(line = reader.readLine()).contains("</variables")) {
+                value = new HashMap<>();
+                if (line.contains("<local_variable")) {
+                    var = new VariableLin();
+                    var.setId(extractValue(line, "id=\"(.*?)\""));
+                    var.setDatatype(extractValue(line, "datatype=\"(.*?)\""));
+                    concatFlag = 0;
+                } else if (line.contains("</local_variable")) {
+                    variables.add(var);
+                } else if (line.contains("<object_component")) {
+                    value.put("tag", "object_component");
+                    value.put("item_field", extractValue(line, "item_field=\"(.*?)\""));
+                    value.put("object_ref", extractValue(line, "object_ref=\"(.*?)\""));
+                    if (!previsiousLine.isEmpty()) {
+                        value.putAll(previsiousLine);
+                        previsiousLine = new HashMap<>();
+                    }
+                    value.put("concat", Integer.toString(concatFlag));
+                    var.addValue(value);
+                } else if (line.contains("<literal_component")) {
+                    value.put("tag", "literal_component");
+                    value.put("value", extractValue(line, ">(.*?)<"));
+                    if (!previsiousLine.isEmpty()) {
+                        value.putAll(previsiousLine);
+                        previsiousLine = new HashMap<>();
+                    }
+                    value.put("concat", Integer.toString(concatFlag));
+                    var.addValue(value);
+                } else if (line.contains("<concat")) {
+                    concatFlag = 1;
+                } else if (line.contains("</concat")) {
+                    concatFlag = 0;
+                }  else if (line.contains("<escape_regex")) {
+                    previsiousLine.put("escape_regex", "yes");
+                }
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        DataStorageLin result = new DataStorageLin(vulnerabilities, inventories, tests, objects, states);
+        DataStorageLin result = new DataStorageLin(vulnerabilities, inventories, tests, objects, states, variables);
         if (result != null) {
             return result;
         } else {

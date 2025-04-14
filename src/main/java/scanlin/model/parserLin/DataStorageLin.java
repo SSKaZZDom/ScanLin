@@ -14,19 +14,22 @@ public class DataStorageLin {
     List<TestLin> tests;
     List<ObjectLin> objects;
     List<StateLin> states;
+    List<VariableLin> variables;
 
     public DataStorageLin(List<VulnerabilityLin> listA, List<InventoryLin> listB, List<TestLin> listC,
-                          List<ObjectLin> listD, List<StateLin> listE) {
+                          List<ObjectLin> listD, List<StateLin> listE, List<VariableLin> listF) {
         this.vulnerabilities = listA;
         this.inventories = listB;
         this.tests = listC;
         this.objects = listD;
         this.states = listE;
+        this.variables = listF;
         listSort(this.vulnerabilities);
         listSort(this.inventories);
         listSort(this.tests);
         listSort(this.objects);
         listSort(this.states);
+        listSort(this.variables);
     }
 
     // Геттеры, если нужно
@@ -49,6 +52,7 @@ public class DataStorageLin {
     public List<StateLin> getStates() {
         return states;
     }
+    public List<VariableLin> getVariables() { return variables; }
 
     private void listSort (List<? extends Storage> list) {
         list.sort(Comparator.comparingInt(s -> extractNumber(s.getId())));
@@ -98,5 +102,9 @@ public class DataStorageLin {
 
     public StateLin findState(String id) {
         return binarySearch(states, id);
+    }
+
+    public VariableLin findVariable(String id) {
+        return binarySearch(variables, id);
     }
 }
