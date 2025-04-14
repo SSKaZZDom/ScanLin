@@ -144,7 +144,7 @@ public class OvalParserLin {
 
             while (!(line = reader.readLine()).contains("</tests>")) {
                 if (line.contains("<dpkginfo_test") || line.contains("<rpminfo_test") ||
-                    line.contains("<textfilecontent54_test") || line.contains("<family_test")) {
+                    line.contains("<textfilecontent54_test")) {
                     test = new TestLin();
                     test.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_test")));
                     test.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
@@ -156,14 +156,13 @@ public class OvalParserLin {
                 } else if (line.contains("<state")) {
                     test.setState(extractValue(line, "state_ref=\"(.*?)\""));
                 } else if (line.contains("</dpkginfo_test") || line.contains("</rpminfo_test") ||
-                        line.contains("</textfilecontent54_test") || line.contains("</family_test")) {
+                        line.contains("</textfilecontent54_test")) {
                     tests.add(test);
                 }
             }
             while (!(line = reader.readLine()).contains("</objects>")) {
                 if (line.contains("<dpkginfo_object") ||
                         line.contains("<rpminfo_object") ||
-                        line.contains("<family_object") ||
                         line.contains("<textfilecontent54_object")) {
                     obj = new ObjectLin();
                     obj.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_object")));
@@ -180,7 +179,7 @@ public class OvalParserLin {
                         value.put("operation", extractValue(line, "operation=\"(.*?)\""));
                     }
                     obj.addValue(value);
-                } else if (line.contains("<path") || line.contains("<filepath")) {
+                } else if (line.contains("<path")) {
                     value = new HashMap<>();
                     value.put("tag", "path");
                     value.put("value", extractValue(line, ">(.*?)<"));
@@ -196,20 +195,22 @@ public class OvalParserLin {
                     value.put("tag", "pattern");
                     value.put("value", extractValue(line, ">(.*?)<"));
                     obj.addValue(value);
-                } else if (line.contains("<behaviors")) {
+                } else if (line.contains("<filepath")) {
                     value = new HashMap<>();
-                    value.put("tag", "behaviors");
-                    value.put("max_depth", extractValue(line, "max_depth=\"(.*?)\""));
+                    value.put("tag", "path");
+                    String fullPath = extractValue(line, ">(.*?)<");
+                    assert fullPath != null;
+                    int lastSlash = fullPath.lastIndexOf('/');
+                    String path = fullPath.substring(0, lastSlash);
+                    String name = fullPath.substring(lastSlash + 1);
+                    value.put("value", path);
                     obj.addValue(value);
-                } else if (line.contains("<instance")) {
                     value = new HashMap<>();
-                    value.put("tag", "instance");
-                    value.put("value", extractValue(line, ">(.*?)<"));
-                    value.put("datatype", extractValue(line, "datatype=\"(.*?)\""));
+                    value.put("tag", "name");
+                    value.put("value", name);
                     obj.addValue(value);
-                }  else if (line.contains("</dpkginfo_object") ||
+                } else if (line.contains("</dpkginfo_object") ||
                         line.contains("</rpminfo_object") ||
-                        line.contains("</family_object") ||
                         line.contains("</textfilecontent54_object")) {
                     objects.add(obj);
                 }
@@ -217,17 +218,11 @@ public class OvalParserLin {
             while (!(line = reader.readLine()).contains("</states")){
                 if (line.contains("<dpkginfo_state") ||
                         line.contains("<rpminfo_state") ||
-                        line.contains("<family_state") ||
                         line.contains("<textfilecontent54_state")) {
                     state = new StateLin();
                     state.setType(line.substring(line.indexOf("<") + 1, line.indexOf("_state")));
                     state.setId(extractValue(line, "id=\"(.*?)\""));
                     state.setXmlns(extractValue(line, "xmlns=\"([^\"]+)\""));
-                } else if (line.contains("<family")) {
-                    value = new HashMap<>();
-                    value.put("tag", "family");
-                    value.put("value", extractValue(line, ">(.*?)</"));
-                    state.setValue(value);
                 } else if (line.contains("<release")) {
                     value = new HashMap<>();
                     value.put("tag", "release");
@@ -256,7 +251,6 @@ public class OvalParserLin {
                     state.setValue(value);
                 } else if (line.contains("</dpkginfo_state") ||
                         line.contains("</rpminfo_state") ||
-                        line.contains("</family_state") ||
                         line.contains("</textfilecontent54_state")) {
                     states.add(state);
                 }

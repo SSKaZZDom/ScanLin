@@ -2,11 +2,10 @@ package scanlin;
 
 import scanlin.model.Model;
 import scanlin.model.ModelInterface;
-import scanlin.model.TestRunner;
+import scanlin.model.TestRunnerLin;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.TestLin;
 
-import java.io.IOException;
 import java.util.List;
 
 public class Main {
@@ -55,9 +54,9 @@ public class Main {
         //Код для получения операционной системы
         //model.getOS();
 
-        //Код, запускающий проверку всех тестов
+        //Код, запускающий проверку всех тестов для ЛИНУКСА
         List<TestLin> tests = storage.getTests();
-        TestRunner testRunner = new TestRunner();
+        TestRunnerLin testRunner = new TestRunnerLin();
         for (TestLin test : tests) {
             if (testRunner.checkTest(test, storage)) {
                 System.out.println(test);
