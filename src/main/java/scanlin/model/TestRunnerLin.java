@@ -115,7 +115,7 @@ public class TestRunnerLin {
             if (test.getState() != null) {
                 lines = filterStringsByRegex(lines, state.getValue().get("value"));
             }
-            
+
             if (!lines.isEmpty()) {
                 return true;
             } else {

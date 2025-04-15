@@ -24,15 +24,20 @@ import java.util.List;
 public class DataBaseManager {
     private DataStorageWin dataStorageWin;
     private DataStorageLin dataStorageLin;
+    public DataBaseManager (boolean isLinux) {
+        if (isLinux) {
+            OvalParserLin parser = new OvalParserLin();
+            this.dataStorageLin = parser.ovalParsing();
+        } else {
+            OvalParserWin parser = new OvalParserWin();
+            this.dataStorageWin = parser.ovalParsing();
+        }
+    }
     public DataStorageWin getDataStorageWin() {
-        OvalParserWin ovalParserWin = new OvalParserWin();
-        this.dataStorageWin = ovalParserWin.ovalParsing();
         return this.dataStorageWin;
     }
 
     public DataStorageLin getDataStorageLin() {
-        OvalParserLin ovalParserLin = new OvalParserLin();
-        this.dataStorageLin = ovalParserLin.ovalParsing();
         return this.dataStorageLin;
     }
     public static void updateDB() throws IOException {

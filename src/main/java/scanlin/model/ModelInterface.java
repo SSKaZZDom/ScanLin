@@ -1,6 +1,7 @@
 package scanlin.model;
 
 import scanlin.model.parserLin.DataStorageLin;
+import scanlin.model.parserLin.VulnerabilityLin;
 import scanlin.model.parserWin.DataStorageWin;
 
 import java.io.IOException;
@@ -15,4 +16,5 @@ public interface ModelInterface {
     public DataStorageWin getDataStorageWin();
     public DataStorageLin getDataStorageLin();
     public String getOS();
+    public List<VulnerabilityLin> findVulnerabilitiesLin();
 }

@@ -322,10 +322,10 @@ public class OvalParserLin {
         }
         for (int cnt = 1; cnt < lines.size(); cnt++) {
             if (lines.get(cnt).contains("<extend_definition")) {
-                String regex = "def:(.*?)\"";
+                String regex = "definition_ref=\"(.*?)\"";
                 result.addDefinition(extractValue(lines.get(cnt), regex));
             } else if (lines.get(cnt).contains("<criterion")) {
-                String regex = "tst:(.*?)\"";
+                String regex = "test_ref=\"(.*?)\"";
                 result.addTest(extractValue(lines.get(cnt), regex));
             } else if (lines.get(cnt).contains("<criteria")) {
                 count = 1;

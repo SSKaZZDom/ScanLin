@@ -496,11 +496,11 @@ public class OvalParserWin {
         List<String> subSet;
         for (int cnt = 1; cnt < lines.size(); cnt++) {
             if (lines.get(cnt).contains("<object_reference>")) {
-                result.addObjectRef(extractValue(lines.get(cnt), "oval:ru\\.altx-soft\\.win:obj:(\\d+)"));
+                result.addObjectRef(extractValue(lines.get(cnt), ">(.*?)<"));
             } else if ((lines.get(cnt).contains("<filter"))) {
                 filter = new FilterWin();
                 filter.setAction(extractValue(lines.get(cnt), "action=\"(.*?)\""));
-                filter.setStateId(extractValue(lines.get(cnt), "oval:ru\\.altx-soft\\.win:ste:(\\d+)"));
+                filter.setStateId(extractValue(lines.get(cnt), ">(.*?)<"));
                 result.addFilter(filter);
             } else if (lines.get(cnt).contains("<set") || lines.get(cnt).contains("<ns1:set") || lines.get(cnt).contains("<oval-def:set")) {
                 count = 1;
@@ -532,10 +532,10 @@ public class OvalParserWin {
         }
         for (int cnt = 1; cnt < lines.size(); cnt++) {
             if (lines.get(cnt).contains("<extend_definition")) {
-                String regex = "def:(.*?)\"";
+                String regex = "definition_ref=\"(.*?)\"";
                 result.addDefinition(extractValue(lines.get(cnt), regex));
             } else if (lines.get(cnt).contains("<criterion")) {
-                String regex = "tst:(.*?)\"";
+                String regex = "test_ref=\"(.*?)\"";
                 result.addTest(extractValue(lines.get(cnt), regex));
             } else if (lines.get(cnt).contains("<criteria")) {
                 count = 1;
