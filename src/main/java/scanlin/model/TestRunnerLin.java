@@ -21,6 +21,44 @@ import java.io.FileReader;
 public class TestRunnerLin {
 
     private final DebianVersionComparator debianComparator = new DebianVersionComparator();
+    DataStorageLin storageLin;
+    List<String> TrueTests;
+
+    public TestRunnerLin(DataStorageLin storage) {
+        this.storageLin = storage;
+        this.TrueTests = checkAllTests(storage);
+    }
+
+    private List<String> checkAllTests(DataStorageLin storage) {
+        List<String> result = new ArrayList<>();
+        int cnt = 0;
+        int size = storage.getTests().size();
+        int percents = 0;
+        long startTime = System.currentTimeMillis();
+        for (TestLin testLin : storage.getTests()) {
+            if (checkTest(testLin, storage)) {
+                result.add(testLin.getId());
+            }
+            cnt++;
+            if ((cnt * 100) / size > percents) {
+                percents = (cnt * 100) / size;
+                System.out.println(percents + "% tests check");
+            }
+        }
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        long minutes = duration / 60000;
+        long seconds = (duration % 60000) / 1000;
+
+        System.out.println("Время выполнения тестов: " + minutes + " мин " + seconds + " сек");
+
+        return result;
+    }
+
+    public List<String> getTrueTests() {
+        return this.TrueTests;
+    }
 
     public boolean checkTest(TestLin test, DataStorageLin storage) {
         ObjectLin object = new ObjectLin();
@@ -58,35 +96,43 @@ public class TestRunnerLin {
                     String packageName = objectValues.get(0).get("value");
                     actualValues.add(getInstalledVersion(packageName));
                 }
+            } else {
+                String packageName = objectValues.get(0).get("value");
+                if (getInstalledVersion(packageName) != null) {
+                    actualValues.add(getInstalledVersion(packageName));
+                }
+            }
+            if (actualValues.isEmpty()) {
+                return false;
+            }
+            for (String actualValue : actualValues) {
+                if (expectedValue != null) {
+                    if (!compareDebianVersion(actualValue, expectedValue, operation)) {
+                        return false;
+                    }
+                }
             }
 
-            for (String actualValue : actualValues) {
-                if (compareDebianVersion(actualValue, expectedValue, operation)) {
-                    return true;
-                }
-            }
+            return true;
         } else if (test.getType().equals("rpminfo")) {
-            if (object == null) {
-                System.out.println(test);
-            } else {
-                List<HashMap<String, String>> objectValues = object.getValues();
-                if (objectValues == null) {
-                    return false;
-                }
-                if (isRpmAvailable()) {
-                    if (objectValues.get(0).containsKey("operation")) {
-                        if (objectValues.get(0).get("operation").equals("pattern match")) {
-                            String patternName = objectValues.get(0).get("value");
-                            if (objectValues.size() == 2) {
-                                String filter = storage.findState(objectValues.get(1).get("value")).getValue().get("value");
-                                return isRpmPackageInstalledRegex(patternName, filter);
-                            } else {
-                                return isRpmPackageInstalledRegex(patternName);
-                            }
+
+            List<HashMap<String, String>> objectValues = object.getValues();
+            if (objectValues == null) {
+                return false;
+            }
+            if (isRpmAvailable()) {
+                if (objectValues.get(0).containsKey("operation")) {
+                    if (objectValues.get(0).get("operation").equals("pattern match")) {
+                        String patternName = objectValues.get(0).get("value");
+                        if (objectValues.size() == 2) {
+                            String filter = storage.findState(objectValues.get(1).get("value")).getValue().get("value");
+                            return isRpmPackageInstalledRegex(patternName, filter);
                         } else {
-                            String packageName = objectValues.get(0).get("value");
-                            return isRpmPackageInstalled(packageName);
+                            return isRpmPackageInstalledRegex(patternName);
                         }
+                    } else {
+                        String packageName = objectValues.get(0).get("value");
+                        return isRpmPackageInstalled(packageName);
                     }
                 }
             }
@@ -271,6 +317,16 @@ public class TestRunnerLin {
         return false;
     }
 
+    private static boolean isRpmAvailable() {
+        try {
+            Process process = new ProcessBuilder("which", "rpm").start();
+            int exitCode = process.waitFor();
+            return exitCode == 0;
+        } catch (IOException | InterruptedException e) {
+            return false;
+        }
+    }
+
     //Оставшиеся методы написаны для проверки тестов типа textfilecontent54
 
     private static List<String> getMatchingFiles(String directoryPath, String regex) {
@@ -283,7 +339,7 @@ public class TestRunnerLin {
             if (files != null) {
                 for (File file : files) {
                     if (file.isFile() && pattern.matcher(file.getName()).matches()) {
-                        matchedFiles.add(directoryPath + file.getName());
+                        matchedFiles.add(directoryPath + "/" + file.getName());
                     }
                 }
             }
@@ -301,7 +357,7 @@ public class TestRunnerLin {
             while ((line = reader.readLine()) != null) {
                 Matcher matcher = pattern.matcher(line);
                 if (matcher.matches()) {
-                    return line;
+                    return matcher.group(1);
                 }
             }
 
@@ -324,15 +380,5 @@ public class TestRunnerLin {
         }
 
         return matchedStrings;
-    }
-
-    private static boolean isRpmAvailable() {
-        try {
-            Process process = new ProcessBuilder("which", "rpm").start();
-            int exitCode = process.waitFor();
-            return exitCode == 0;
-        } catch (IOException | InterruptedException e) {
-            return false;
-        }
     }
 }

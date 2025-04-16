@@ -49,20 +49,15 @@ public class Main {
         //DataStorageWin dataStorageWin = model.getDataStorageWin();
 
         //Код, который парсит бд в список уязвимостей ДЛЯ ЛИНУКСА
-        //DataStorageLin storage = model.getDataStorageLin();
+        //DataStorageLin dataStorageLin = model.getDataStorageLin();
 
         //Код для получения операционной системы
         //model.getOS();
 
         //Код, запускающий проверку всех тестов для ЛИНУКСА
-        /*List<TestLin> tests = storage.getTests();
-        TestRunnerLin testRunner = new TestRunnerLin();
-        for (TestLin test : tests) {
-            if (testRunner.checkTest(test, storage)) {
-                System.out.println(test + " is true");
-            }
-        }*/
-
+        /*List<TestLin> tests = dataStorageLin.getTests();
+        TestRunnerLin testRunner = new TestRunnerLin(dataStorageLin);
+*/
         //Код, который проверяет список уязвимостей
         System.out.println(model.findVulnerabilitiesLin());
     }

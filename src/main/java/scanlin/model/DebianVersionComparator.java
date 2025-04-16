@@ -111,7 +111,7 @@ public class DebianVersionComparator implements Comparator<String> {
         } else if (n2.isEmpty()) {
             return 1;
         } else {
-            return Integer.compare(Integer.parseInt(n1), Integer.parseInt(n2));
+            return Long.compare(Long.parseLong(n1), Long.parseLong(n2));
         }
     }
 }
