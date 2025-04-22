@@ -38,8 +38,6 @@ public class CriteriaRunnerLin {
 
         System.out.println("Время проверки уязвимостей: " + minutes + " мин " + seconds + " сек");
 
-        //System.out.println(CriteriaCheck(storage.findVulnerability("oval:ru.altx-soft.nix:def:199017").getCriteria(), storage, runner));
-
         return result;
     }
 

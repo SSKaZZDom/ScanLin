@@ -5,6 +5,7 @@ import scanlin.model.ModelInterface;
 import scanlin.model.TestRunnerLin;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.TestLin;
+import scanlin.model.parserLin.VulnerabilityLin;
 
 import java.util.List;
 
@@ -59,6 +60,10 @@ public class Main {
         TestRunnerLin testRunner = new TestRunnerLin(dataStorageLin);
 */
         //Код, который проверяет список уязвимостей
-        System.out.println(model.findVulnerabilitiesLin());
+        List<VulnerabilityLin> vuls = model.findVulnerabilitiesLin();
+        for (VulnerabilityLin vul : vuls) {
+            System.out.println("Найдена уязвимость: " + vul.getFstec_id());
+            System.out.println("Краткое описание уязвимости: " + vul.getTitle());
+        }
     }
 }
