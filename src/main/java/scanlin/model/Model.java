@@ -75,4 +75,12 @@ public class Model implements ModelInterface{
         CriteriaRunnerLin runner = new CriteriaRunnerLin();
         return runner.VulnerabilityCheck(storageLin);
     }
+
+    @Override
+    public void saveReport(List<VulnerabilityLin> vuls) {
+        String ip = LocalNetworkIP.getLocalNetworkIp();
+        System.out.println(ip);
+        assert ip != null;
+        ReportSaverLin.exportToCSV(vuls, "data/report_" + ip.replace(".","_") + ".csv");
+    }
 }

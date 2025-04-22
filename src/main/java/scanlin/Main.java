@@ -1,12 +1,11 @@
 package scanlin;
 
-import scanlin.model.Model;
-import scanlin.model.ModelInterface;
-import scanlin.model.TestRunnerLin;
+import scanlin.model.*;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.TestLin;
 import scanlin.model.parserLin.VulnerabilityLin;
 
+import java.net.InetAddress;
 import java.util.List;
 
 public class Main {
@@ -65,5 +64,8 @@ public class Main {
             System.out.println("Найдена уязвимость: " + vul.getFstec_id());
             System.out.println("Краткое описание уязвимости: " + vul.getTitle());
         }
+
+        //Код, который сохраняет в файл отчёт
+        model.saveReport(vuls);
     }
 }

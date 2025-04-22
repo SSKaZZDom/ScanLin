@@ -17,4 +17,5 @@ public interface ModelInterface {
     public DataStorageLin getDataStorageLin();
     public String getOS();
     public List<VulnerabilityLin> findVulnerabilitiesLin();
+    public void saveReport(List<VulnerabilityLin> vuls);
 }
