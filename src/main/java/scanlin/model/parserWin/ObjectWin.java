@@ -23,7 +23,7 @@ public class ObjectWin extends Storage {
     private String xpath;
     private String cmdCommand;
     private String parameter;
-    private List<String> select;
+    private List<String> selectField;
     private String namespace;
     private String wql;
     private int maxDepth;
@@ -31,7 +31,7 @@ public class ObjectWin extends Storage {
     // Конструктор по умолчанию
     public ObjectWin() {
         filters = new ArrayList<>();
-        select = new ArrayList<>();
+        selectField = new ArrayList<>();
     }
 
     // Геттеры и сеттеры
@@ -94,9 +94,9 @@ public class ObjectWin extends Storage {
     public void setFilters(List<FilterWin> filters) { this.filters = filters; }
     public void addFilter(FilterWin filter) { this.filters.add(filter); }
 
-    public List<String> getSelect() { return select; }
-    public void setSelect(List<String> select) { this.select = select; }
-    public void addSelect(String select) { this.select.add(select); }
+    public List<String> getSelect() { return selectField; }
+    public void setSelect(List<String> selectField) { this.selectField = selectField; }
+    public void addSelect(String selectField) { this.selectField.add(selectField); }
 
     public ObjectSetWin getSet() { return set; }
     public void setSet(ObjectSetWin set) { this.set = set; }
@@ -109,7 +109,7 @@ public class ObjectWin extends Storage {
                         "cmdCommand='%s', parameter='%s', namespace='%s', wql='%s', filters=%s, select=%s }",
                 id, type, name, xmlns, path, varRef, varCheck, hive, key, operation,
                 windowsView, maxDepth, pattern, xpath, cmdCommand, parameter, namespace, wql,
-                filters, select
+                filters, selectField
         );
     }
 }

@@ -18,8 +18,11 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class DataBaseManager {
     private DataStorageWin dataStorageWin;
@@ -127,6 +130,12 @@ public class DataBaseManager {
                 if (entry.getName().startsWith("data.tar.xz")) {
                     // Читаем содержимое data.tar.xz
                     Path tempDataTarXz = Files.createTempFile("data", ".tar.xz");
+
+                    if (Files.getFileStore(tempDataTarXz).supportsFileAttributeView("posix")) {
+                        Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-------");
+                        Files.setPosixFilePermissions(tempDataTarXz, perms);
+                    }
+
                     try (OutputStream out = Files.newOutputStream(tempDataTarXz)) {
                         arIn.transferTo(out);
                     }

@@ -237,7 +237,7 @@ public class TestRunnerLin {
             }
 
             process.waitFor();
-        } catch (Exception e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
