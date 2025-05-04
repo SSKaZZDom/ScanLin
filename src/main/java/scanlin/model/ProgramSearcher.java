@@ -11,8 +11,16 @@ public class ProgramSearcher {
         }
 
         File fullOutputFile = new File("data/FullOutput.txt");
-        try (BufferedWriter fullOutputWriter = new BufferedWriter(new FileWriter(fullOutputFile))) {
-            Process process = Runtime.getRuntime().exec("reg query HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall /s");
+        try (
+                BufferedWriter fullOutputWriter = new BufferedWriter(new FileWriter(fullOutputFile))
+        ) {
+            List<String> command = Arrays.asList(
+                    "reg", "query",
+                    "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+                    "/s"
+            );
+            ProcessBuilder builder = new ProcessBuilder(command);
+            Process process = builder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
             String line;
@@ -45,7 +53,8 @@ public class ProgramSearcher {
                     flag = 1;
                 }
             }
-        } catch (Exception e) {
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return programs;

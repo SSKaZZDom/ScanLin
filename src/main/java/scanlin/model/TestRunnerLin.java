@@ -223,12 +223,14 @@ public class TestRunnerLin {
         List<String> matchingPackages = new ArrayList<>();
         Pattern pattern = Pattern.compile(regex);
         try {
-            Process process = Runtime.getRuntime().exec("dpkg-query -W -f='${Package}\n'");
+            ProcessBuilder builder = new ProcessBuilder("dpkg-query", "-W", "-f=${Package}\\n");
+            Process process = builder.start();
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
 
             while ((line = reader.readLine()) != null) {
-                line = line.trim().replaceAll("^'|'$", ""); // Убираем лишние кавычки, если есть
+                line = line.trim();
                 if (pattern.matcher(line).matches()) {
                     matchingPackages.add(line);
                 }
