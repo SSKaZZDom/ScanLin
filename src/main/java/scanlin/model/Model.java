@@ -4,6 +4,7 @@ import scanlin.model.parserLin.CriteriaLin;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.VulnerabilityLin;
 import scanlin.model.parserWin.DataStorageWin;
+import scanlin.viewmodel.ViewModelInterface;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Model implements ModelInterface{
     DataBaseManager dbManager;
     DataStorageLin storageLin;
     DataStorageWin storageWin;
+    ViewModelInterface viewModel;
     public Model() {
         this.osAnalyzer = new OSAnalyzer();
         this.dbManager = new DataBaseManager(osAnalyzer.isLinux());
@@ -29,11 +31,6 @@ public class Model implements ModelInterface{
         return pathManager.readFile();
     }
 
-    @Override
-    public List<Map<String,String>> getProgramList() {
-        ProgramSearcher programSearcher = new ProgramSearcher();
-        return programSearcher.getProgramList();
-    }
 
     @Override
     public void updateDataBase() {
@@ -82,5 +79,10 @@ public class Model implements ModelInterface{
         System.out.println(ip);
         assert ip != null;
         ReportSaverLin.exportToCSV(vuls, "data/report_" + ip.replace(".","_") + ".csv");
+    }
+
+    @Override
+    public void setViewModel(ViewModelInterface viewModel) {
+        this.viewModel = viewModel;
     }
 }

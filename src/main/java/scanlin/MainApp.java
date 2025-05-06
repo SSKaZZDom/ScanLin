@@ -10,15 +10,14 @@ import scanlin.viewmodel.ViewModel;
 import scanlin.viewmodel.ViewModelInterface;
 
 public class MainApp extends Application {
-    private Model model;
-    private ViewModel viewModel;
-    private View view;
 
     @Override
     public void start(Stage primaryStage) {
         ModelInterface model = new Model();
-        ViewModelInterface viewmodel = new ViewModel(model);
-        ViewInterface view = new View(viewmodel);
+        ViewInterface view = new View();
+        ViewModelInterface viewModel = new ViewModel(model, view);
+        view.setViewModel(viewModel);
+        model.setViewModel(viewModel);
 
         view.initUI(primaryStage);
     }
