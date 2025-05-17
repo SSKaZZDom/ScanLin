@@ -28,6 +28,15 @@ public class DataBaseManager {
     private DataStorageWin dataStorageWin;
     private DataStorageLin dataStorageLin;
     public DataBaseManager (boolean isLinux) {
+        File dbLin = new File("data/scanovalcontent_alse17.deb");
+        File dbWin = new File("data/scanoval.xml");
+        if (isLinux && !dbLin.exists() || !isLinux && !dbWin.exists()) {
+            try {
+                updateDB();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         if (isLinux) {
             OvalParserLin parser = new OvalParserLin();
             this.dataStorageLin = parser.ovalParsing();

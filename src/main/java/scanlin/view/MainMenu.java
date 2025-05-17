@@ -13,15 +13,53 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import scanlin.viewmodel.ViewModelInterface;
 
-public class MainMenu {
-    private double xOffset = 0;
+public class MainMenu extends BasePage{
+    ViewModelInterface viewModel;
+
+    public MainMenu(ViewModelInterface viewModel,Stage stage) {
+        super(stage);
+        this.viewModel = viewModel;
+        initialize();
+    }
+
+    private void initialize() {
+        VBox buttonsBox = new VBox(15);
+        buttonsBox.setAlignment(Pos.CENTER);
+
+        Button btn1 = createStyledButton("Поиск уязвимостей");
+        Button btn2 = createStyledButton("Просмотр отчётов");
+        Button btn3 = createStyledButton("Загрузка базы данных");
+        Button btn4 = createStyledButton("Калькулятор ФСТЭК");
+
+        buttonsBox.getChildren().addAll(btn1, btn2, btn3, btn4);
+
+        btn1.setOnAction(e -> {
+            ChooseScanTypePage scanTypePage = new ChooseScanTypePage(stage);
+            stage.setScene(scanTypePage.createScene());
+        });
+
+        btn3.setOnAction(e -> {
+            LoadingPage loadingPage = new LoadingPage(stage, viewModel);
+            stage.setScene(loadingPage.createScene());
+        });
+
+        VBox centerContainer = new VBox(buttonsBox);
+        centerContainer.setAlignment(Pos.CENTER);
+        VBox.setVgrow(centerContainer, Priority.ALWAYS);
+
+        root.setCenter(centerContainer); // 👈 Правильная установка содержимого в центр
+    }
+
+    /*private double xOffset = 0;
     private double yOffset = 0;
 
     private final VBox root;
+    private final Stage stage;
     ViewModelInterface viewModel;
 
-    public MainMenu(ViewModelInterface viewModel) {
+    public MainMenu(ViewModelInterface viewModel, Stage stage) {
         this.viewModel = viewModel;
+        this.stage = stage;
         root = new VBox();
         initialize();
     }
@@ -116,6 +154,11 @@ public class MainMenu {
         Button btn3 = createMenuButton("Загрузка базы данных");
         Button btn4 = createMenuButton("Калькулятор ФСТЭК");
 
+        btn1.setOnAction(e -> {
+            ChooseScanTypePage scanTypePage = new ChooseScanTypePage(stage);
+            stage.setScene(scanTypePage.createScene());
+        });
+
         VBox buttonsBox = new VBox(15, btn1, btn2, btn3, btn4);
         buttonsBox.setAlignment(Pos.CENTER);
 
@@ -152,5 +195,5 @@ public class MainMenu {
         Scene scene = new Scene(getRoot());
         scene.setFill(Color.TRANSPARENT);
         return scene;
-    }
+    }*/
 }

@@ -8,6 +8,7 @@ import scanlin.viewmodel.ViewModelInterface;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public interface ModelInterface {
     public String getPath() throws IOException;
@@ -19,4 +20,8 @@ public interface ModelInterface {
     public List<VulnerabilityLin> findVulnerabilitiesLin();
     public void saveReport(List<VulnerabilityLin> vuls);
     public void setViewModel(ViewModelInterface viewModel);
+    public void runTestThread(Consumer<Double> onProgress, Consumer<String> onStatus);
+    public void pauseTest();
+    public void resumeTest();
+    public void stopTest();
 }

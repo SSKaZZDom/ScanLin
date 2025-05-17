@@ -9,6 +9,7 @@ import scanlin.viewmodel.ViewModelInterface;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class Model implements ModelInterface{
     OSAnalyzer osAnalyzer;
@@ -16,6 +17,7 @@ public class Model implements ModelInterface{
     DataStorageLin storageLin;
     DataStorageWin storageWin;
     ViewModelInterface viewModel;
+    TestLoading test;
     public Model() {
         this.osAnalyzer = new OSAnalyzer();
         this.dbManager = new DataBaseManager(osAnalyzer.isLinux());
@@ -84,5 +86,26 @@ public class Model implements ModelInterface{
     @Override
     public void setViewModel(ViewModelInterface viewModel) {
         this.viewModel = viewModel;
+    }
+
+    @Override
+    public void runTestThread(Consumer<Double> onProgress, Consumer<String> onStatus) {
+        this.test = new TestLoading();
+        test.runLongOperation(onProgress, onStatus);
+    }
+
+    @Override
+    public void pauseTest() {
+        test.pause();
+    }
+
+    @Override
+    public void resumeTest(){
+        test.resume();
+    }
+
+    @Override
+    public void stopTest(){
+        test.stop();
     }
 }
