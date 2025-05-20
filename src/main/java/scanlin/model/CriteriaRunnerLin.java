@@ -57,6 +57,9 @@ public class CriteriaRunnerLin {
                 notifyProgress(onProgress, onStatus, progress);
             }
             this.trueVuls = result;
+            if (!stopped) {
+                notifyStatus(onStatus, "Завершено!");
+            }
         }).start();
     }
 
