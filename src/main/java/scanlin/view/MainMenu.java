@@ -34,8 +34,8 @@ public class MainMenu extends BasePage{
         buttonsBox.getChildren().addAll(btn1, btn2, btn3, btn4);
 
         btn1.setOnAction(e -> {
-            ChooseScanTypePage scanTypePage = new ChooseScanTypePage(stage);
-            stage.setScene(scanTypePage.createScene());
+            ScanProgressPage scanPage = new ScanProgressPage(stage, viewModel);
+            stage.setScene(scanPage.createScene());
         });
 
         btn3.setOnAction(e -> {
