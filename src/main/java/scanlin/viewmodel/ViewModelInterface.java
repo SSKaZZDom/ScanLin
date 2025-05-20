@@ -11,4 +11,10 @@ public interface ViewModelInterface {
     public StringProperty statusProperty();
     public void stop();
     public void start();
+    public void togglePauseScan();
+    public BooleanProperty pausedPropertyScan();
+    public DoubleProperty progressPropertyScan();
+    public StringProperty statusPropertyScan();
+    public void stopScan();
+    public void startScan();
 }

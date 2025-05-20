@@ -10,6 +10,7 @@ public class ViewModel implements ViewModelInterface {
     ModelInterface model;
     ViewInterface view;
     LoadingController testController;
+    ScanController scanController;
     public ViewModel(ModelInterface model, ViewInterface view) {
         this.model = model;
         this.view = view;
@@ -40,5 +41,33 @@ public class ViewModel implements ViewModelInterface {
     @Override
     public void start() {
         testController = new LoadingController(model);
+    }
+
+    @Override
+    public void togglePauseScan(){
+        scanController.togglePause();
+    }
+
+    @Override
+    public StringProperty statusPropertyScan(){
+        return scanController.statusProperty();
+    }
+
+    @Override
+    public DoubleProperty progressPropertyScan(){
+        return scanController.progressProperty();
+    }
+
+    @Override
+    public BooleanProperty pausedPropertyScan(){
+        return scanController.pausedProperty();
+    }
+
+    @Override
+    public void stopScan(){ scanController.stop();}
+
+    @Override
+    public void startScan() {
+        scanController = new ScanController(model);
     }
 }

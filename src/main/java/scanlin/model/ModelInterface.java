@@ -17,11 +17,16 @@ public interface ModelInterface {
     public DataStorageWin getDataStorageWin();
     public DataStorageLin getDataStorageLin();
     public String getOS();
-    public List<VulnerabilityLin> findVulnerabilitiesLin();
+    //public List<VulnerabilityLin> findVulnerabilitiesLin();
     public void saveReport(List<VulnerabilityLin> vuls);
     public void setViewModel(ViewModelInterface viewModel);
     public void runTestThread(Consumer<Double> onProgress, Consumer<String> onStatus);
     public void pauseTest();
     public void resumeTest();
     public void stopTest();
+    public void runScan(Consumer<Double> onProgress, Consumer<String> onStatus);
+    public void pauseScan();
+    public void resumeScan();
+    public void stopScan();
+    public List<VulnerabilityLin> getTrueVuls();
 }

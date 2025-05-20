@@ -26,17 +26,15 @@ public class TestRunnerLin {
 
     public TestRunnerLin(DataStorageLin storage) {
         this.storageLin = storage;
-        this.TrueTests = checkAllTests(storage);
     }
 
-    private List<String> checkAllTests(DataStorageLin storage) {
+    public void checkAllTests() {
         List<String> result = new ArrayList<>();
         int cnt = 0;
-        int size = storage.getTests().size();
+        int size = storageLin.getTests().size();
         int percents = 0;
-        long startTime = System.currentTimeMillis();
-        for (TestLin testLin : storage.getTests()) {
-            if (checkTest(testLin, storage)) {
+        for (TestLin testLin : storageLin.getTests()) {
+            if (checkTest(testLin, storageLin)) {
                 result.add(testLin.getId());
             }
             cnt++;
@@ -45,15 +43,7 @@ public class TestRunnerLin {
                 System.out.println(percents + "% tests check");
             }
         }
-
-        long endTime = System.currentTimeMillis();
-        long duration = endTime - startTime;
-        long minutes = duration / 60000;
-        long seconds = (duration % 60000) / 1000;
-
-        System.out.println("Время выполнения тестов: " + minutes + " мин " + seconds + " сек");
-
-        return result;
+        this.TrueTests = result;
     }
 
     public List<String> getTrueTests() {

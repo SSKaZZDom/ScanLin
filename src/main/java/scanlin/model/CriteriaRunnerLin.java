@@ -1,5 +1,6 @@
 package scanlin.model;
 
+import javafx.application.Platform;
 import scanlin.model.parserLin.CriteriaLin;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.InventoryLin;
@@ -7,38 +8,91 @@ import scanlin.model.parserLin.VulnerabilityLin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class CriteriaRunnerLin {
+    private volatile boolean paused = false;
+    private volatile boolean stopped = false;
+    private final Object pauseLock = new Object();
+    private List<VulnerabilityLin> trueVuls;
     public CriteriaRunnerLin() {
 
     }
 
-    public List<VulnerabilityLin> VulnerabilityCheck(DataStorageLin storage) {
-        List<VulnerabilityLin> result = new ArrayList<>();
-        List<VulnerabilityLin> vuls = storage.getVulnerabilities();
-        TestRunnerLin runner = new TestRunnerLin(storage);
-        int cnt = 0;
-        int size = vuls.size();
-        int percents = 0;
-        long startTime = System.currentTimeMillis();
-        for (VulnerabilityLin vul : vuls) {
-            if (CriteriaCheck(vul.getCriteria(), storage, runner)) {
-                result.add(vul);
+    public void VulnerabilityCheck(
+            DataStorageLin storage,
+            Consumer<Double> onProgress,
+            Consumer<String> onStatus
+    ) {
+        new Thread(() -> {
+            List<VulnerabilityLin> result = new ArrayList<>();
+            List<VulnerabilityLin> vuls = storage.getVulnerabilities();
+            TestRunnerLin runner = new TestRunnerLin(storage);
+            runner.checkAllTests();
+
+            int cnt = 0;
+            int size = vuls.size();
+
+            for (VulnerabilityLin vul : vuls) {
+                if (stopped) break;
+
+                synchronized (pauseLock) {
+                    while (paused) {
+                        try {
+                            pauseLock.wait();
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                            notifyStatus(onStatus, "Операция прервана");
+                            return;
+                        }
+                    }
+                }
+
+                if (CriteriaCheck(vul.getCriteria(), storage, runner)) {
+                    result.add(vul);
+                }
+
+                cnt++;
+                double progress = (double) cnt / size;
+                notifyProgress(onProgress, onStatus, progress);
             }
-            cnt++;
-            if ((cnt * 100) / size > percents) {
-                percents = (cnt * 100) / size;
-                System.out.println(percents + "% vuls check");
-            }
+            this.trueVuls = result;
+        }).start();
+    }
+
+    private void notifyProgress(Consumer<Double> onProgress, Consumer<String> onStatus, double progress) {
+        Platform.runLater(() -> {
+            onProgress.accept(progress);
+            onStatus.accept((int) (progress * 100) + "%");
+        });
+    }
+
+    private void notifyStatus(Consumer<String> onStatus, String message) {
+        Platform.runLater(() -> onStatus.accept(message));
+    }
+
+    public void pause() {
+        paused = true;
+    }
+
+    public void resume() {
+        synchronized (pauseLock) {
+            paused = false;
+            pauseLock.notifyAll();
         }
-        long endTime = System.currentTimeMillis();
-        long duration = endTime - startTime;
-        long minutes = duration / 60000;
-        long seconds = (duration % 60000) / 1000;
+    }
 
-        System.out.println("Время проверки уязвимостей: " + minutes + " мин " + seconds + " сек");
+    public void stop() {
+        stopped = true;
+        resume(); // чтобы не застрял в паузе
+    }
 
-        return result;
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public List<VulnerabilityLin> getTrueVuls(){
+        return this.trueVuls;
     }
 
     private boolean CriteriaCheck (CriteriaLin criteriaLin, DataStorageLin storage, TestRunnerLin runner) {

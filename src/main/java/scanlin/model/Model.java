@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 public class Model implements ModelInterface{
     OSAnalyzer osAnalyzer;
     DataBaseManager dbManager;
+    CriteriaRunnerLin runner;
     DataStorageLin storageLin;
     DataStorageWin storageWin;
     ViewModelInterface viewModel;
@@ -70,12 +71,6 @@ public class Model implements ModelInterface{
     }
 
     @Override
-    public List<VulnerabilityLin> findVulnerabilitiesLin() {
-        CriteriaRunnerLin runner = new CriteriaRunnerLin();
-        return runner.VulnerabilityCheck(storageLin);
-    }
-
-    @Override
     public void saveReport(List<VulnerabilityLin> vuls) {
         String ip = LocalNetworkIP.getLocalNetworkIp();
         System.out.println(ip);
@@ -108,4 +103,38 @@ public class Model implements ModelInterface{
     public void stopTest(){
         test.stop();
     }
+
+    /*@Override
+    public List<VulnerabilityLin> findVulnerabilitiesLin() {
+        this.runner = new CriteriaRunnerLin();
+        return runner.VulnerabilityCheck(storageLin);
+    }
+*/
+    @Override
+    public void runScan(Consumer<Double> onProgress, Consumer<String> onStatus) {
+        this.runner = new CriteriaRunnerLin();
+        runner.VulnerabilityCheck(storageLin,  onProgress, onStatus);
+        System.out.println(runner.getTrueVuls());
+    }
+
+    @Override
+    public void pauseScan() {
+        runner.pause();
+    }
+
+    @Override
+    public void resumeScan(){
+        runner.resume();
+    }
+
+    @Override
+    public void stopScan(){
+        runner.stop();
+    }
+
+    @Override
+    public List<VulnerabilityLin> getTrueVuls() {
+        return runner.getTrueVuls();
+    }
+
 }
