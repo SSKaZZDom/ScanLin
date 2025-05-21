@@ -75,7 +75,7 @@ public class Model implements ModelInterface{
         String ip = LocalNetworkIP.getLocalNetworkIp();
         System.out.println(ip);
         assert ip != null;
-        ReportSaverLin.exportToCSV(vuls, "data/report_" + ip.replace(".","_") + ".csv");
+        ReportSaverLin.exportToCSV(vuls, "/report_" + ip.replace(".","_") + ".csv");
     }
 
     @Override

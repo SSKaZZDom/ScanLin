@@ -28,7 +28,7 @@ public class DataBaseManager {
     private DataStorageWin dataStorageWin;
     private DataStorageLin dataStorageLin;
     public DataBaseManager (boolean isLinux) {
-        File dbLin = new File("data/scanovalcontent_alse17.deb");
+        File dbLin = new File("data/AstraSE17VulnsOVAL.xml");
         File dbWin = new File("data/scanoval.xml");
         if (isLinux && !dbLin.exists() || !isLinux && !dbWin.exists()) {
             try {

@@ -67,7 +67,7 @@ public class ScanProgressPage extends BasePage{
             pauseButton.setText(newVal ? "▶ Продолжить" : "⏸ Пауза");
         });
 
-        viewModel.statusProperty().addListener((obs, oldStatus, newStatus) -> {
+        viewModel.statusPropertyScan().addListener((obs, oldStatus, newStatus) -> {
             statusLabel.setText(newStatus);
 
             if ("Завершено!".equals(newStatus)) {
