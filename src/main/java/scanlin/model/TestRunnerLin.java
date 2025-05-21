@@ -1,5 +1,6 @@
 package scanlin.model;
 
+import javafx.application.Platform;
 import scanlin.model.parserLin.DataStorageLin;
 import scanlin.model.parserLin.ObjectLin;
 import scanlin.model.parserLin.StateLin;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.FileReader;
@@ -28,21 +30,24 @@ public class TestRunnerLin {
         this.storageLin = storage;
     }
 
-    public void checkAllTests() {
+    public void checkAllTests(Consumer<Double> onProgress) {
         List<String> result = new ArrayList<>();
         int cnt = 0;
         int size = storageLin.getTests().size();
-        int percents = 0;
+
         for (TestLin testLin : storageLin.getTests()) {
             if (checkTest(testLin, storageLin)) {
                 result.add(testLin.getId());
             }
+
             cnt++;
-            if ((cnt * 100) / size > percents) {
-                percents = (cnt * 100) / size;
-                System.out.println(percents + "% tests check");
-            }
+            double progress = (double) cnt / size;
+            double scaledProgress = progress * 0.7; // масштабируем в диапазон 0%–70%
+            final double finalProgress = scaledProgress;
+
+            Platform.runLater(() -> onProgress.accept(finalProgress));
         }
+
         this.TrueTests = result;
     }
 

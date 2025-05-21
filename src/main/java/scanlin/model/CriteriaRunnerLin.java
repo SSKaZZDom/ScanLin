@@ -28,7 +28,7 @@ public class CriteriaRunnerLin {
             List<VulnerabilityLin> result = new ArrayList<>();
             List<VulnerabilityLin> vuls = storage.getVulnerabilities();
             TestRunnerLin runner = new TestRunnerLin(storage);
-            runner.checkAllTests();
+            runner.checkAllTests(onProgress);
 
             int cnt = 0;
             int size = vuls.size();
@@ -53,7 +53,7 @@ public class CriteriaRunnerLin {
                 }
 
                 cnt++;
-                double progress = (double) cnt / size;
+                double progress = (double) cnt / size + 70;
                 notifyProgress(onProgress, onStatus, progress);
             }
             this.trueVuls = result;
