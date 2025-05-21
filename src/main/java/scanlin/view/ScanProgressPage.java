@@ -40,7 +40,7 @@ public class ScanProgressPage extends BasePage{
         );
 
 
-        Button pauseButton = createStyledButton("⏸ Пауза");
+        Button pauseButton = createStyledButton("Пауза");
         pauseButton.setOnAction(e -> {
             viewModel.togglePauseScan();
         });
@@ -62,22 +62,35 @@ public class ScanProgressPage extends BasePage{
             stage.setScene(mainMenu.createScene());
         });
 
+        Button saveButton = createStyledButton("Сохранить отчёт");
+        saveButton.setVisible(false); // изначально скрыта
+
+        saveButton.setOnAction(e -> {
+            //viewModel.saveReport();
+        });
+
+
         // Обновляем надпись кнопки при смене состояния
         viewModel.pausedPropertyScan().addListener((obs, oldVal, newVal) -> {
-            pauseButton.setText(newVal ? "▶ Продолжить" : "⏸ Пауза");
+            pauseButton.setText(newVal ? "Продолжить" : "Пауза");
         });
 
         viewModel.statusPropertyScan().addListener((obs, oldStatus, newStatus) -> {
             if ("Завершено!".equals(newStatus)) {
                 finishButton.setVisible(true);
+                saveButton.setVisible(true);
+
+                pauseButton.setVisible(false);
+                cancelButton.setVisible(false);
             }
         });
+
 
         // Привязка к ViewModel
         progressBar.progressProperty().bind(viewModel.progressPropertyScan());
         statusLabel.textProperty().bind(viewModel.statusPropertyScan());
 
-        contentBox.getChildren().addAll(statusLabel, progressBar, pauseButton, cancelButton, finishButton);
+        contentBox.getChildren().addAll(statusLabel, progressBar, pauseButton, cancelButton, finishButton, saveButton);
         root.setCenter(contentBox);
     }
     @Override
