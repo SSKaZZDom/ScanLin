@@ -28,7 +28,12 @@ public class CriteriaRunnerLin {
             List<VulnerabilityLin> result = new ArrayList<>();
             List<VulnerabilityLin> vuls = storage.getVulnerabilities();
             TestRunnerLin runner = new TestRunnerLin(storage);
-            runner.checkAllTests(progress -> notifyProgress(onProgress, onStatus, progress));
+            runner.checkAllTests(
+                    p -> notifyProgress(onProgress, onStatus, p * 0.7),
+                    () -> paused,
+                    () -> stopped,
+                    pauseLock
+            );
 
             int cnt = 0;
             int size = vuls.size();

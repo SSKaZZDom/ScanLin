@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.io.FileReader;
@@ -30,21 +31,37 @@ public class TestRunnerLin {
         this.storageLin = storage;
     }
 
-    public void checkAllTests(Consumer<Double> onProgress) {
+    public void checkAllTests(
+            Consumer<Double> onProgress,
+            Supplier<Boolean> isPaused,
+            Supplier<Boolean> isStopped,
+            Object pauseLock
+    ) {
         List<String> result = new ArrayList<>();
-        int cnt = 0;
-        int size = storageLin.getTests().size();
+        List<TestLin> tests = storageLin.getTests();
+        int size = tests.size();
 
-        for (TestLin testLin : storageLin.getTests()) {
+        for (int i = 0; i < size; i++) {
+            if (isStopped.get()) break;
+
+            synchronized (pauseLock) {
+                while (isPaused.get()) {
+                    try {
+                        pauseLock.wait();
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
+                }
+            }
+
+            TestLin testLin = tests.get(i);
             if (checkTest(testLin, storageLin)) {
                 result.add(testLin.getId());
             }
 
-            cnt++;
-            double progress = (double) cnt / size;
-            double scaledProgress = progress * 0.7; // масштабируем в диапазон 0%–70%
-
-            Platform.runLater(() -> onProgress.accept(scaledProgress));
+            double progress = (double) (i + 1) / size;
+            onProgress.accept(progress);
         }
 
         this.TrueTests = result;
