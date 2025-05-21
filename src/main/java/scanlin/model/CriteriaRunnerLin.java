@@ -28,7 +28,7 @@ public class CriteriaRunnerLin {
             List<VulnerabilityLin> result = new ArrayList<>();
             List<VulnerabilityLin> vuls = storage.getVulnerabilities();
             TestRunnerLin runner = new TestRunnerLin(storage);
-            runner.checkAllTests(onProgress);
+            runner.checkAllTests(progress -> notifyProgress(onProgress, onStatus, progress));
 
             int cnt = 0;
             int size = vuls.size();
@@ -66,9 +66,14 @@ public class CriteriaRunnerLin {
     private void notifyProgress(Consumer<Double> onProgress, Consumer<String> onStatus, double progress) {
         Platform.runLater(() -> {
             onProgress.accept(progress);
-            onStatus.accept((int) (progress * 100) + "%");
+            if (progress < 0.7) {
+                onStatus.accept("Проверка тестов: " + (int)(progress / 0.7 * 100) + "%");
+            } else {
+                onStatus.accept("Проверка уязвимостей: " + (int)((progress - 0.7) / 0.3 * 100) + "%");
+            }
         });
     }
+
 
     private void notifyStatus(Consumer<String> onStatus, String message) {
         Platform.runLater(() -> onStatus.accept(message));
