@@ -68,8 +68,6 @@ public class ScanProgressPage extends BasePage{
         });
 
         viewModel.statusPropertyScan().addListener((obs, oldStatus, newStatus) -> {
-            statusLabel.setText(newStatus);
-
             if ("Завершено!".equals(newStatus)) {
                 finishButton.setVisible(true);
             }
