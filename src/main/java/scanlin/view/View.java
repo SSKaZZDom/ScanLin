@@ -16,7 +16,7 @@ public class View implements ViewInterface{
     public void initUI(Stage stage) {
         // Установка начальной сцены
         MainMenu menu = new MainMenu(viewModel, stage);
-        Scene scene = new Scene(menu.getRoot());
+        Scene scene = new Scene(menu.getRoot(), 900, 600);
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setTitle("Главное меню");

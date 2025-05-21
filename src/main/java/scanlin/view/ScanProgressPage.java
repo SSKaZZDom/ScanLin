@@ -104,8 +104,6 @@ public class ScanProgressPage extends BasePage{
     }
     @Override
     public Scene createScene() {
-        Scene scene = new Scene(getRoot(), 600, 400);
-        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
-        return scene;
+        return super.createScene();
     }
 }

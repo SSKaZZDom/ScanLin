@@ -9,38 +9,10 @@ import scanlin.view.ViewInterface;
 public class ViewModel implements ViewModelInterface {
     ModelInterface model;
     ViewInterface view;
-    LoadingController testController;
     ScanController scanController;
     public ViewModel(ModelInterface model, ViewInterface view) {
         this.model = model;
         this.view = view;
-    }
-    @Override
-    public void togglePause(){
-        testController.togglePause();
-    }
-
-    @Override
-    public StringProperty statusProperty(){
-        return testController.statusProperty();
-    }
-
-    @Override
-    public DoubleProperty progressProperty(){
-        return testController.progressProperty();
-    }
-
-    @Override
-    public BooleanProperty pausedProperty(){
-        return testController.pausedProperty();
-    }
-
-    @Override
-    public void stop(){ testController.stop();}
-
-    @Override
-    public void start() {
-        testController = new LoadingController(model);
     }
 
     @Override
@@ -69,5 +41,10 @@ public class ViewModel implements ViewModelInterface {
     @Override
     public void startScan() {
         scanController = new ScanController(model);
+    }
+
+    @Override
+    public double calcFstec(double cvss, int type, int count, int network) {
+        return model.calc(cvss, type, count, network);
     }
 }

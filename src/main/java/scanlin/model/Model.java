@@ -18,7 +18,6 @@ public class Model implements ModelInterface{
     DataStorageLin storageLin;
     DataStorageWin storageWin;
     ViewModelInterface viewModel;
-    TestLoading test;
     public Model() {
         this.osAnalyzer = new OSAnalyzer();
         this.dbManager = new DataBaseManager(osAnalyzer.isLinux());
@@ -83,26 +82,6 @@ public class Model implements ModelInterface{
         this.viewModel = viewModel;
     }
 
-    @Override
-    public void runTestThread(Consumer<Double> onProgress, Consumer<String> onStatus) {
-        this.test = new TestLoading();
-        test.runLongOperation(onProgress, onStatus);
-    }
-
-    @Override
-    public void pauseTest() {
-        test.pause();
-    }
-
-    @Override
-    public void resumeTest(){
-        test.resume();
-    }
-
-    @Override
-    public void stopTest(){
-        test.stop();
-    }
 
     /*@Override
     public List<VulnerabilityLin> findVulnerabilitiesLin() {
@@ -137,4 +116,9 @@ public class Model implements ModelInterface{
         return runner.getTrueVuls();
     }
 
+    @Override
+    public double calc(double cvss, int type, int count, int network) {
+        CalcFSTEC calcFSTEC = new CalcFSTEC();
+        return calcFSTEC.calc(cvss, type, count, network);
+    }
 }

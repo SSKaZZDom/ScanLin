@@ -151,7 +151,6 @@ public class TestRunnerLin {
         } else if (test.getType().equals("textfilecontent54")) {
             List<HashMap<String, String>> objectValues = object.getValues();
             List<String> files = new ArrayList<>();
-
             if (objectValues.get(1).containsKey("operation")){
                 if (objectValues.get(1).get("operation").equals("pattern match")) {
                     files = getMatchingFiles(objectValues.get(0).get("value"), objectValues.get(1).get("value"));

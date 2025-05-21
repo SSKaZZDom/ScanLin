@@ -22,17 +22,17 @@ public class ScanController {
 
     public void togglePause() {
         if (paused.get()) {
-            model.resumeTest();
+            model.resumeScan();
             paused.set(false);
         } else {
-            model.pauseTest();
+            model.pauseScan();
             paused.set(true);
         }
     }
 
     public void stop() {
         if (paused.get()) {
-            model.stopTest();
+            model.stopScan();
         }
     }
 

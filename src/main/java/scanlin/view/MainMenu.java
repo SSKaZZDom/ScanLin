@@ -38,16 +38,23 @@ public class MainMenu extends BasePage{
             stage.setScene(scanPage.createScene());
         });
 
-        btn3.setOnAction(e -> {
-            LoadingPage loadingPage = new LoadingPage(stage, viewModel);
-            stage.setScene(loadingPage.createScene());
-        });
+        btn4.setOnAction((e -> {
+            CalcPage calcPage = new CalcPage(stage, viewModel);
+            stage.setScene(calcPage.createScene());
+        }));
+
+
 
         VBox centerContainer = new VBox(buttonsBox);
         centerContainer.setAlignment(Pos.CENTER);
         VBox.setVgrow(centerContainer, Priority.ALWAYS);
 
         root.setCenter(centerContainer); // 👈 Правильная установка содержимого в центр
+    }
+
+    @Override
+    public Scene createScene() {
+        return super.createScene();
     }
 
     /*private double xOffset = 0;

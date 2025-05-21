@@ -145,7 +145,7 @@ public abstract class BasePage {
      * Создаёт сцену с прозрачным фоном
      */
     public Scene createScene() {
-        Scene scene = new Scene(getRoot());
+        Scene scene = new Scene(getRoot(), 900, 600);
         scene.setFill(Color.TRANSPARENT);
         return scene;
     }
