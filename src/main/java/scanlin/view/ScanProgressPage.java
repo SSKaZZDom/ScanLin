@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import scanlin.viewmodel.ViewModelInterface;
@@ -69,6 +70,12 @@ public class ScanProgressPage extends BasePage{
             //viewModel.saveReport();
         });
 
+        HBox scanningButtonsBox = new HBox(20, pauseButton, cancelButton);
+        scanningButtonsBox.setAlignment(Pos.CENTER);
+
+        HBox finishedButtonsBox = new HBox(20, finishButton, saveButton);
+        finishedButtonsBox.setAlignment(Pos.CENTER);
+        finishedButtonsBox.setVisible(false);
 
         // Обновляем надпись кнопки при смене состояния
         viewModel.pausedPropertyScan().addListener((obs, oldVal, newVal) -> {
@@ -77,11 +84,8 @@ public class ScanProgressPage extends BasePage{
 
         viewModel.statusPropertyScan().addListener((obs, oldStatus, newStatus) -> {
             if ("Завершено!".equals(newStatus)) {
-                finishButton.setVisible(true);
-                saveButton.setVisible(true);
-
-                pauseButton.setVisible(false);
-                cancelButton.setVisible(false);
+                scanningButtonsBox.setVisible(false);
+                finishedButtonsBox.setVisible(true);
             }
         });
 
@@ -90,7 +94,12 @@ public class ScanProgressPage extends BasePage{
         progressBar.progressProperty().bind(viewModel.progressPropertyScan());
         statusLabel.textProperty().bind(viewModel.statusPropertyScan());
 
-        contentBox.getChildren().addAll(statusLabel, progressBar, pauseButton, cancelButton, finishButton, saveButton);
+        contentBox.getChildren().addAll(
+                statusLabel,
+                progressBar,
+                scanningButtonsBox,
+                finishedButtonsBox
+        );
         root.setCenter(contentBox);
     }
     @Override
