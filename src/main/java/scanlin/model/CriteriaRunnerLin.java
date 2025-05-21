@@ -53,7 +53,7 @@ public class CriteriaRunnerLin {
                 }
 
                 cnt++;
-                double progress = (double) cnt / size + 70;
+                double progress = 0.7 + 0.3 * cnt / size;
                 notifyProgress(onProgress, onStatus, progress);
             }
             this.trueVuls = result;
@@ -67,9 +67,9 @@ public class CriteriaRunnerLin {
         Platform.runLater(() -> {
             onProgress.accept(progress);
             if (progress < 0.7) {
-                onStatus.accept("Проверка тестов: " + (int)(progress / 0.7 * 100) + "%");
+                onStatus.accept("Проверка тестов: " + (int)(progress * 100) + "%");
             } else {
-                onStatus.accept("Проверка уязвимостей: " + (int)((progress - 0.7) / 0.3 * 100) + "%");
+                onStatus.accept("Проверка уязвимостей: " + (int)(progress * 100) + "%");
             }
         });
     }

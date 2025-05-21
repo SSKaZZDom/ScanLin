@@ -43,9 +43,8 @@ public class TestRunnerLin {
             cnt++;
             double progress = (double) cnt / size;
             double scaledProgress = progress * 0.7; // масштабируем в диапазон 0%–70%
-            final double finalProgress = scaledProgress;
 
-            Platform.runLater(() -> onProgress.accept(finalProgress));
+            Platform.runLater(() -> onProgress.accept(scaledProgress));
         }
 
         this.TrueTests = result;
