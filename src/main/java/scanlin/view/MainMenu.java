@@ -38,6 +38,11 @@ public class MainMenu extends BasePage{
             stage.setScene(scanPage.createScene());
         });
 
+        btn3.setOnAction(e -> {
+            DownloadPage downloadPage = new DownloadPage(stage, viewModel);
+            stage.setScene(downloadPage.createScene());
+        });
+
         btn4.setOnAction((e -> {
             CalcPage calcPage = new CalcPage(stage, viewModel);
             stage.setScene(calcPage.createScene());

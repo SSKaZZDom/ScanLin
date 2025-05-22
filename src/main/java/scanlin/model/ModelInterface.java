@@ -12,7 +12,8 @@ import java.util.function.Consumer;
 
 public interface ModelInterface {
     public String getPath() throws IOException;
-    public void updateDataBase() throws IOException;
+    public void updateDataBase(Consumer<Double> onProgress, Consumer<String> onStatus) throws IOException;
+    public void stopDownload();
     public List<String> getVulnerabilityURL(String id);
     public DataStorageWin getDataStorageWin();
     public DataStorageLin getDataStorageLin();

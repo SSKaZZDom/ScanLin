@@ -1,15 +1,17 @@
 package scanlin.viewmodel;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import scanlin.model.ModelInterface;
 import scanlin.view.ViewInterface;
+
+import java.io.IOException;
 
 public class ViewModel implements ViewModelInterface {
     ModelInterface model;
     ViewInterface view;
     ScanController scanController;
+    private final DoubleProperty progress = new SimpleDoubleProperty(0);
+    private final StringProperty status = new SimpleStringProperty("Инициализация...");
     public ViewModel(ModelInterface model, ViewInterface view) {
         this.model = model;
         this.view = view;
@@ -46,5 +48,30 @@ public class ViewModel implements ViewModelInterface {
     @Override
     public double calcFstec(double cvss, int type, int count, int network) {
         return model.calc(cvss, type, count, network);
+    }
+    @Override
+    public void startDownload(){
+        try {
+            model.updateDataBase(progress::set,
+                    status::set);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void stopDownload() {
+        model.stopDownload();
+        StringProperty status = new SimpleStringProperty("Инициализация...");
+    }
+
+    @Override
+    public StringProperty statusPropertyDownload(){
+        return status;
+    }
+
+    @Override
+    public DoubleProperty progressPropertyDownload(){
+        return progress;
     }
 }

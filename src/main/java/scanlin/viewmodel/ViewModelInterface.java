@@ -12,4 +12,8 @@ public interface ViewModelInterface {
     public void stopScan();
     public void startScan();
     public double calcFstec(double cvss, int type, int count, int network);
+    public void startDownload();
+    public void stopDownload();
+    public StringProperty statusPropertyDownload();
+    public DoubleProperty progressPropertyDownload();
 }

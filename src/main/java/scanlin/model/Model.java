@@ -35,12 +35,17 @@ public class Model implements ModelInterface{
 
 
     @Override
-    public void updateDataBase() {
+    public void updateDataBase(Consumer<Double> onProgress, Consumer<String> onStatus) {
         try {
-            dbManager.updateDB();
+            dbManager.updateDB(onProgress,onStatus);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void stopDownload() {
+        dbManager.stopDownload();
     }
 
     @Override
